@@ -39,6 +39,7 @@ class Page
     public static function mainContent(): string
     {
         $mainContent = '<main>';
+
         $mainContent .= '</main>';
 
         return $mainContent;
