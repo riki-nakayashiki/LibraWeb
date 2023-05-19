@@ -45,6 +45,18 @@ class Page
         return $mainContent;
     }
 
+     /**
+     *@return string 
+     */
+
+     public static function informationRow(): string{
+        $row = '
+        <section>
+        
+        </section>
+        ';
+     }
+
     /**
      * @return string
      */
