@@ -59,4 +59,21 @@ body main {
   .infor .slides h5 {
     font-size: 20px;
   }
+}
+@media (min-width: 700px) {
+  .infor .slides {
+    width: 40%;
+  }
+}
+@media (min-width: 1000px) {
+  .infor {
+    width: 100%;
+  }
+  .infor .slides {
+    width: 20%;
+    transition: 0.3;
+  }
+  .infor .slides:hover {
+    border: 1px solid rgb(0, 242, 255);
+  }
 }/*# sourceMappingURL=style.css.map */

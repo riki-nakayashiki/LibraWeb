@@ -1,2 +1,13 @@
 @media (min-width: 1000px) {
+  // slide show of information row
+  .infor {
+    width: 100%;
+    .slides {
+      width: 20%;
+      transition: 0.3;
+    }
+    .slides:hover {
+      border: 1px solid rgb(0, 242, 255);
+    }
+  }
 }
