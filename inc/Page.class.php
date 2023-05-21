@@ -39,7 +39,7 @@ class Page
     public static function mainContent(): string
     {
         $mainContent = '<main>';
-
+        $mainContent .=self::informationRow();
         $mainContent .= '</main>';
 
         return $mainContent;
@@ -50,11 +50,31 @@ class Page
      */
 
      public static function informationRow(): string{
-        $row = '
-        <section>
-        
-        </section>
-        ';
+        $images = array(
+            "./img/labtop.jpg",
+            "./img/library.jpg",
+            "./img/meeting.jpg",
+            "./img/reading.jpg"
+        );
+        $row = '<section class = "infor">';
+
+        foreach ($images as $image) {
+            $row .= '
+                <figure class = "slides">
+                    <img src = "'. $image .'">
+                    <figcaption>
+                        <i class="fa-solid fa-clock"></i>
+                        <h5>
+                            10:00 - 17:00
+                        </h5>
+                    </figcaption>
+                </figure>
+            ';
+        }
+
+        $row .= '</section>';
+
+        return $row;
      }
 
     /**
