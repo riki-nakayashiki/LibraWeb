@@ -1,4 +1,21 @@
 @media (min-width: 700px) {
+    .news-highlights {
+        h2 {
+            font-size: 35px;
+        }
+
+        p,
+        h4,
+        a {
+            font-size: 20px;
+        }
+
+        a:hover {
+            background-color: white;
+            border: 2px solid $mainColor;
+        }
+    }
+
     .footer {
         h4 {
             font-size: 35px;

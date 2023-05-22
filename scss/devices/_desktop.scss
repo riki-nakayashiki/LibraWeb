@@ -1,4 +1,22 @@
 @media (min-width: 1000px) {
+    .news-highlights {
+        height: 100vh;
+
+        img {
+            height: 25vh;
+        }
+        .news {
+            display: flex;
+            flex-direction: row;
+            width: 95%;
+            column-gap: 3vh;
+
+            figcaption {
+                height: 40vh;
+            }
+        }
+    }
+
     .footer {
         h4 {
             width: 30%;

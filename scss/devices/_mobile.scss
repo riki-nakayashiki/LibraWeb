@@ -13,7 +13,45 @@ body {
   }
 
 @media (min-width: 300px) {
+    .news-highlights {
+        img {
+            width: 100%;
+        }
+
+        h2 {
+            color: $mainColor;
+            font-weight: 600;
+        }
+
+        @include MakeColumn (3vh);
+        align-items: center;
+
+        .news {
+            @include MakeColumn (5vh);
+            width: 90%;
+        }
+
+        figure {
+
+            p {
+                text-align: justify;
+                padding-bottom: 5%;
+            }
+
+            a {
+                text-decoration: none;
+                border: 1px solid $thirdColor;
+                border-radius: 10px;
+                background-color: $thirdColor;
+                padding: 2%;
+                color: $mainColor;
+                transition: .6s;
+            }
+        }
+    }
+    
     .footer {
+        padding-top: 5vh;
         display: flex;
         flex-direction: column;
         align-items: center;
