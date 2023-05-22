@@ -1,2 +1,22 @@
 @media (min-width: 1000px) {
+    .footer {
+        h4 {
+            width: 30%;
+        }
+    }
+    .contact-follow {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        // height: 50vh;
+        // column-gap: 20vh;
+    }
+    
+    .contact {
+        width: 50%;
+    }
+
+    .follow {
+        width: 50%;
+    }
 }

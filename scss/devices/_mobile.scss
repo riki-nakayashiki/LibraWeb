@@ -1,3 +1,102 @@
 // @import "/scss/mixins";
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    main {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
 @media (min-width: 300px) {
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        a {
+            text-decoration: none;
+        }
+
+        h4 {
+            font-size: 20px;
+            border-bottom: 1px solid black;
+            width: 30%;
+        }
+
+    }
+    
+    .contact-follow {
+        @include MakeColumn (3vh);
+        justify-content: center;
+        background-color: $mainColor;
+        width: 100%;
+        height: 55vh;
+        
+        p {
+            font-weight: 700;
+            // border-bottom: 1px solid black;
+        }
+        
+        a {
+            color: rgb(208, 208, 208);
+            transition: .6s;
+        }
+    } 
+
+    .contact,
+    .follow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .follow {
+        ul {
+        display: flex;
+        width: 100%;
+        padding-top: 3vh;
+        }
+
+        li {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgb(208, 208, 208);
+            border-radius: 50px;
+            width: 5vh;
+            height: 5vh;
+            font-size: 20px;
+            transition: .6s;
+        }
+    }
+
+    .copyright {
+        @include MakeColumn (2vh);
+        justify-content: center;
+        align-items: center;
+        background-color: $thirdColor;
+        height: 20vh;
+        border-top: 5px solid rgb(208, 208, 208);
+
+        p {
+            width: 90%;
+        }
+
+        a {
+            color: $mainColor;
+            transition: .6s;
+        }
+    }
 }
