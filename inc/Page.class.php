@@ -51,7 +51,7 @@ class Page
                             </section>
                         </header>
                         <nav class="nav-main">
-                            <ul class="d-none d-md-flex justify-content-around">
+                            <ul class="d-none d-md-flex justify-content-between">
                                 <li><a href="#">About</a></li>
                                 <li><a href="#">Books</a></li>
                                 <li><a href="#">Rooms</a></li>
