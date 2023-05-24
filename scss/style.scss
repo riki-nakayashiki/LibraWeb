@@ -3,11 +3,10 @@
 @import 'mixins';
 
 @import 'devices/mobile';
+
 // @import 'devices/tablet';
 // @import 'devices/desktop';
-h1 {
-    color: red;
-}
+
 .header-main {
     height: 25vh;
 
@@ -55,7 +54,7 @@ h1 {
         text-align: center;
         color: black;
     }
-    
+
     a:hover {
         background-color: #50C778;
         color: white;
