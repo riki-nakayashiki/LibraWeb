@@ -1,184 +1,250 @@
 body {
-  @include MakeColumn;
-  // @include MakeCenter;
-  width: 100%;
-  height: 100%;
-  main {
     @include MakeColumn;
     // @include MakeCenter;
     width: 100%;
     height: 100%;
-  }
+
+    main {
+        @include MakeColumn;
+        // @include MakeCenter;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @media (min-width: 300px) {
-  .news-highlights {
-    img {
-      width: 100%;
+    .header-main {
+        height: 25vh;
+
+        background: {
+            image: url("../img/header-bg.jpg");
+            position: center;
+            size: cover;
+            repeat: no-repeat;
+        }
+
+        section {
+            height: 100%;
+            padding: 20px;
+            background-color: rgba($color: white, $alpha: 0.7);
+        }
+
+        figure {
+            width: 20vw;
+        }
+
+        img {
+            width: 100px;
+        }
+
+        a {
+            font-size: 24px;
+            height: 40px;
+            width: 100px;
+            text-decoration: none;
+            text-align: center;
+        }
     }
 
-    h2 {
-      color: $mainColor;
-      font-weight: 600;
+    .nav-main {
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            height: 5vh;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 18px;
+            width: 100%;
+            text-align: center;
+            color: black;
+        }
+
+        a:hover {
+            background-color: $secondaryColor;
+            color: white;
+        }
     }
 
-    @include MakeColumn(3vh);
-    align-items: center;
+    .news-highlights {
+        img {
+            width: 100%;
+        }
 
-    .news {
-      @include MakeColumn(5vh);
-      width: 90%;
+        h2 {
+            color: $mainColor;
+            font-weight: 600;
+        }
+
+        @include MakeColumn(3vh);
+        align-items: center;
+
+        .news {
+            @include MakeColumn(5vh);
+            width: 90%;
+        }
+
+        figure {
+            p {
+                text-align: justify;
+                padding-bottom: 5%;
+            }
+
+            a {
+                text-decoration: none;
+                border: 1px solid $thirdColor;
+                border-radius: 10px;
+                background-color: $thirdColor;
+                padding: 2%;
+                color: $mainColor;
+                transition: 0.6s;
+            }
+        }
     }
 
-    figure {
-      p {
-        text-align: justify;
-        padding-bottom: 5%;
-      }
-
-      a {
-        text-decoration: none;
-        border: 1px solid $thirdColor;
-        border-radius: 10px;
-        background-color: $thirdColor;
-        padding: 2%;
-        color: $mainColor;
-        transition: 0.6s;
-      }
-    }
-  }
-  // slide show of information row
-  .infor {
-    @include MakeCenter;
-    @include MakeColumn;
-    column-gap: 3vh;
-    row-gap: 2vh;
-    font-size: 30px;
-    .slides {
-      @include MakeColumn;
-      @include MakeCenter;
-      flex-wrap: wrap;
-      width: 100%;
-      row-gap: 5vh;
-      figure {
-        position: relative;
-        display: flex;
-        row-gap: 3vh;
-        width: 90%;
-        height: 40vh;
-      }
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-      figcaption {
-        position: absolute;
-        bottom: 0;
-        // display: flex;
+    // slide show of information row
+    .infor {
         @include MakeCenter;
+        @include MakeColumn;
         column-gap: 3vh;
-        width: 90%;
-        height: 20%;
-        // border: 1px solid black;
-        background-color: rgba(53, 52, 52, 0.7);
-        padding: 5%;
-        box-sizing: content-box;
-        color: #fff;
-      }
-      i {
+        row-gap: 2vh;
+        font-size: 30px;
+
+        .slides {
+            @include MakeColumn;
+            @include MakeCenter;
+            flex-wrap: wrap;
+            width: 100%;
+            row-gap: 5vh;
+
+            figure {
+                position: relative;
+                display: flex;
+                row-gap: 3vh;
+                width: 90%;
+                height: 40vh;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            figcaption {
+                position: absolute;
+                bottom: 0;
+                // display: flex;
+                @include MakeCenter;
+                column-gap: 3vh;
+                width: 90%;
+                height: 20%;
+                // border: 1px solid black;
+                background-color: rgba(53, 52, 52, 0.7);
+                padding: 5%;
+                box-sizing: content-box;
+                color: #fff;
+            }
+
+            i {
+                display: flex;
+            }
+
+            h5 {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .footer {
+        padding-top: 5vh;
         display: flex;
-      }
-      h5 {
-        font-size: 16px;
-      }
-    }
-  }
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
 
-  .footer {
-    padding-top: 5vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+        a {
+            text-decoration: none;
+        }
 
-    a {
-      text-decoration: none;
+        h4 {
+            font-size: 20px;
+            border-bottom: 1px solid black;
+            width: 30%;
+        }
     }
 
-    h4 {
-      font-size: 20px;
-      border-bottom: 1px solid black;
-      width: 30%;
-    }
-  }
+    .contact-follow {
+        @include MakeColumn(3vh);
+        justify-content: center;
+        background-color: $mainColor;
+        width: 100%;
+        height: 55vh;
 
-  .contact-follow {
-    @include MakeColumn(3vh);
-    justify-content: center;
-    background-color: $mainColor;
-    width: 100%;
-    height: 55vh;
+        p {
+            font-weight: 700;
+            // border-bottom: 1px solid black;
+        }
 
-    p {
-      font-weight: 700;
-      // border-bottom: 1px solid black;
-    }
-
-    a {
-      color: rgb(208, 208, 208);
-      transition: 0.6s;
-    }
-  }
-
-  .contact,
-  .follow {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .follow {
-    ul {
-      display: flex;
-      width: 100%;
-      padding-top: 3vh;
+        a {
+            color: rgb(208, 208, 208);
+            transition: 0.6s;
+        }
     }
 
-    li {
-      display: flex;
-      width: 100%;
-      justify-content: center;
+    .contact,
+    .follow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid rgb(208, 208, 208);
-      border-radius: 50px;
-      width: 5vh;
-      height: 5vh;
-      font-size: 20px;
-      transition: 0.6s;
-    }
-  }
+    .follow {
+        ul {
+            display: flex;
+            width: 100%;
+            padding-top: 3vh;
+        }
 
-  .copyright {
-    @include MakeColumn(2vh);
-    justify-content: center;
-    align-items: center;
-    background-color: $thirdColor;
-    height: 20vh;
-    border-top: 5px solid rgb(208, 208, 208);
+        li {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
 
-    p {
-      width: 90%;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgb(208, 208, 208);
+            border-radius: 50px;
+            width: 5vh;
+            height: 5vh;
+            font-size: 20px;
+            transition: 0.6s;
+        }
     }
 
-    a {
-      color: $mainColor;
-      transition: 0.6s;
+    .copyright {
+        @include MakeColumn(2vh);
+        justify-content: center;
+        align-items: center;
+        background-color: $thirdColor;
+        height: 20vh;
+        border-top: 5px solid rgb(208, 208, 208);
+
+        p {
+            width: 90%;
+        }
+
+        a {
+            color: $mainColor;
+            transition: 0.6s;
+        }
     }
-  }
 }
