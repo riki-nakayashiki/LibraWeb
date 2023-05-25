@@ -51,11 +51,28 @@ class Page
 
      public static function informationRow(): string{
         $images = array(
-            "./img/labtop.jpg",
-            "./img/library.jpg",
-            "./img/meeting.jpg",
-            "./img/reading.jpg"
+            array(
+                'src' => "./img/labtop.jpg",
+                'caption' => "10:00 - 17:00",
+                'title' => "Laptop Rooms"
+            ),
+            array(
+                'src' => "./img/library.jpg",
+                'caption' => "10:00 - 19:00",
+                'title' => "Study Rooms"
+            ),
+            array(
+                'src' => "./img/meeting.jpg",
+                'caption' => "10:00 - 16:00",
+                'title' => "Meeting Rooms"
+            ),
+            array(
+                'src' => "./img/reading.jpg",
+                'caption' => "10:00 - 17:00",
+                'title' => "Reading Rooms"
+            )
         );
+
         $row = '<section class = "infor">
                     <h2>Services</h2>
                     <aside class = "slides">    
@@ -64,12 +81,13 @@ class Page
         foreach ($images as $image) {
             $row .= '
                 <figure>
-                    <img src = "'. $image .'">
+                    <img src="'. $image['src'] .'">
                     <figcaption>
                         <i class="fa-solid fa-clock"></i>
-                        <h5>
-                            10:00 - 17:00
-                        </h5>
+                        
+                            <h5>'. $image['title'] .'</h5>
+                            <h6>'. $image['caption'] .'</h6>
+                    
                     </figcaption>
                 </figure>
             ';
