@@ -66,4 +66,42 @@
       transform: rotateY(180deg);
     }
   }
+  .news-highlights {
+    height: 100vh;
+
+    img {
+      height: 25vh;
+    }
+    .news {
+      display: flex;
+      flex-direction: row;
+      width: 95%;
+      column-gap: 3vh;
+
+      figcaption {
+        height: 40vh;
+      }
+    }
+  }
+
+  .footer {
+    h4 {
+      width: 30%;
+    }
+  }
+  .contact-follow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // height: 50vh;
+    // column-gap: 20vh;
+  }
+
+  .contact {
+    width: 50%;
+  }
+
+  .follow {
+    width: 50%;
+  }
 }
