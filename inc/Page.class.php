@@ -56,11 +56,14 @@ class Page
             "./img/meeting.jpg",
             "./img/reading.jpg"
         );
-        $row = '<section class = "infor">';
+        $row = '<section class = "infor">
+                    <h2>Services</h2>
+                    <aside class = "slides">    
+                ';
 
         foreach ($images as $image) {
             $row .= '
-                <figure class = "slides">
+                <figure>
                     <img src = "'. $image .'">
                     <figcaption>
                         <i class="fa-solid fa-clock"></i>
@@ -72,7 +75,9 @@ class Page
             ';
         }
 
-        $row .= '</section>';
+        $row .= '
+            </aside>
+        </section>';
 
         return $row;
      }

@@ -1,11 +1,11 @@
 body {
-  display: flex;
-  flex-direction: column;
+  @include MakeColumn;
+  @include MakeCenter;
   width: 100%;
   height: 100%;
   main {
-    display: flex;
-    flex-direction: column;
+    @include MakeColumn;
+    @include MakeCenter;
     width: 100%;
     height: 100%;
   }
@@ -13,18 +13,24 @@ body {
 @media (min-width: 300px) {
   // slide show of information row
   .infor {
-    // @include MakeColumn;
-    display: flex;
+    @include MakeCenter;
+    @include MakeColumn;
     column-gap: 3vh;
     row-gap: 2vh;
-    justify-content: center;
-    flex-wrap: wrap;
+    font-size: 30px;
     .slides {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      width: 80%;
-      height: 30vh;
+      @include MakeColumn;
+      @include MakeCenter;
+      flex-wrap: wrap;
+      width: 100%;
+      row-gap: 5vh;
+      figure {
+        position: relative;
+        display: flex;
+        row-gap: 3vh;
+        width: 90%;
+        height: 40vh;
+      }
 
       img {
         width: 100%;

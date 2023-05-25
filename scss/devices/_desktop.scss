@@ -3,11 +3,16 @@
   .infor {
     width: 100%;
     .slides {
-      width: 20%;
-      transition: 0.3;
-    }
-    .slides:hover {
-      border: 1px solid rgb(0, 242, 255);
+      flex-direction: row;
+      column-gap: 5vh;
+      figure {
+        width: 40%;
+        height: 50vh;
+        transition: 0.3;
+      }
+      figure:hover {
+        border: 2px solid rgb(0, 242, 255);
+      }
     }
   }
 }
