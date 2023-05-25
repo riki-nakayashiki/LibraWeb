@@ -5,3 +5,62 @@
 @import 'devices/mobile';
 @import 'devices/tablet';
 @import 'devices/desktop';
+
+.header-main {
+    height: 25vh;
+
+    background: {
+        image: url('../img/header-bg.jpg');
+        position: center;
+        size: cover;
+        repeat: no-repeat;
+    }
+
+    section {
+        height: 100%;
+        padding: 20px;
+        background-color: rgba($color: white, $alpha: .7);
+    }
+
+    figure {
+        width: 20vw;
+    }
+
+    img {
+        width: 100px;
+    }
+
+    a {
+        font-size: 24px;
+        height: 40px;
+        width: 100px;
+        text-decoration: none;
+        text-align: center;
+    }
+}
+
+.nav-main {
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        display: flex;
+        height: 5vh;
+        width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 18px;
+        width: 100%;
+        text-align: center;
+        color: black;
+    }
+
+    a:hover {
+        background-color: #50C778;
+        color: white;
+    }
+}
