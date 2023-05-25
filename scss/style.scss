@@ -3,9 +3,8 @@
 @import 'mixins';
 
 @import 'devices/mobile';
-
-// @import 'devices/tablet';
-// @import 'devices/desktop';
+@import 'devices/tablet';
+@import 'devices/desktop';
 
 .header-main {
     height: 25vh;
