@@ -1,140 +1,184 @@
-// @import "/scss/mixins";
 body {
-    display: flex;
-    flex-direction: column;
+  @include MakeColumn;
+  // @include MakeCenter;
+  width: 100%;
+  height: 100%;
+  main {
+    @include MakeColumn;
+    // @include MakeCenter;
     width: 100%;
     height: 100%;
-    main {
-      display: flex;
-      flex-direction: column;
+  }
+}
+
+@media (min-width: 300px) {
+  .news-highlights {
+    img {
       width: 100%;
-      height: 100%;
+    }
+
+    h2 {
+      color: $mainColor;
+      font-weight: 600;
+    }
+
+    @include MakeColumn(3vh);
+    align-items: center;
+
+    .news {
+      @include MakeColumn(5vh);
+      width: 90%;
+    }
+
+    figure {
+      p {
+        text-align: justify;
+        padding-bottom: 5%;
+      }
+
+      a {
+        text-decoration: none;
+        border: 1px solid $thirdColor;
+        border-radius: 10px;
+        background-color: $thirdColor;
+        padding: 2%;
+        color: $mainColor;
+        transition: 0.6s;
+      }
+    }
+  }
+  // slide show of information row
+  .infor {
+    @include MakeCenter;
+    @include MakeColumn;
+    column-gap: 3vh;
+    row-gap: 2vh;
+    font-size: 30px;
+    .slides {
+      @include MakeColumn;
+      @include MakeCenter;
+      flex-wrap: wrap;
+      width: 100%;
+      row-gap: 5vh;
+      figure {
+        position: relative;
+        display: flex;
+        row-gap: 3vh;
+        width: 90%;
+        height: 40vh;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      figcaption {
+        position: absolute;
+        bottom: 0;
+        // display: flex;
+        @include MakeCenter;
+        column-gap: 3vh;
+        width: 90%;
+        height: 20%;
+        // border: 1px solid black;
+        background-color: rgba(53, 52, 52, 0.7);
+        padding: 5%;
+        box-sizing: content-box;
+        color: #fff;
+      }
+      i {
+        display: flex;
+      }
+      h5 {
+        font-size: 16px;
+      }
     }
   }
 
-@media (min-width: 300px) {
-    .news-highlights {
-        img {
-            width: 100%;
-        }
+  .footer {
+    padding-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 
-        h2 {
-            color: $mainColor;
-            font-weight: 600;
-        }
-
-        @include MakeColumn (3vh);
-        align-items: center;
-
-        .news {
-            @include MakeColumn (5vh);
-            width: 90%;
-        }
-
-        figure {
-
-            p {
-                text-align: justify;
-                padding-bottom: 5%;
-            }
-
-            a {
-                text-decoration: none;
-                border: 1px solid $thirdColor;
-                border-radius: 10px;
-                background-color: $thirdColor;
-                padding: 2%;
-                color: $mainColor;
-                transition: .6s;
-            }
-        }
-    }
-    
-    .footer {
-        padding-top: 5vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-
-        a {
-            text-decoration: none;
-        }
-
-        h4 {
-            font-size: 20px;
-            border-bottom: 1px solid black;
-            width: 30%;
-        }
-
-    }
-    
-    .contact-follow {
-        @include MakeColumn (3vh);
-        justify-content: center;
-        background-color: $mainColor;
-        width: 100%;
-        height: 55vh;
-        
-        p {
-            font-weight: 700;
-            // border-bottom: 1px solid black;
-        }
-        
-        a {
-            color: rgb(208, 208, 208);
-            transition: .6s;
-        }
-    } 
-
-    .contact,
-    .follow {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    a {
+      text-decoration: none;
     }
 
-    .follow {
-        ul {
-        display: flex;
-        width: 100%;
-        padding-top: 3vh;
-        }
+    h4 {
+      font-size: 20px;
+      border-bottom: 1px solid black;
+      width: 30%;
+    }
+  }
 
-        li {
-            display: flex;
-            width: 100%;
-            justify-content: center;
-        }
+  .contact-follow {
+    @include MakeColumn(3vh);
+    justify-content: center;
+    background-color: $mainColor;
+    width: 100%;
+    height: 55vh;
 
-        a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid rgb(208, 208, 208);
-            border-radius: 50px;
-            width: 5vh;
-            height: 5vh;
-            font-size: 20px;
-            transition: .6s;
-        }
+    p {
+      font-weight: 700;
+      // border-bottom: 1px solid black;
     }
 
-    .copyright {
-        @include MakeColumn (2vh);
-        justify-content: center;
-        align-items: center;
-        background-color: $thirdColor;
-        height: 20vh;
-        border-top: 5px solid rgb(208, 208, 208);
-
-        p {
-            width: 90%;
-        }
-
-        a {
-            color: $mainColor;
-            transition: .6s;
-        }
+    a {
+      color: rgb(208, 208, 208);
+      transition: 0.6s;
     }
+  }
+
+  .contact,
+  .follow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .follow {
+    ul {
+      display: flex;
+      width: 100%;
+      padding-top: 3vh;
+    }
+
+    li {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgb(208, 208, 208);
+      border-radius: 50px;
+      width: 5vh;
+      height: 5vh;
+      font-size: 20px;
+      transition: 0.6s;
+    }
+  }
+
+  .copyright {
+    @include MakeColumn(2vh);
+    justify-content: center;
+    align-items: center;
+    background-color: $thirdColor;
+    height: 20vh;
+    border-top: 5px solid rgb(208, 208, 208);
+
+    p {
+      width: 90%;
+    }
+
+    a {
+      color: $mainColor;
+      transition: 0.6s;
+    }
+  }
 }
