@@ -56,7 +56,7 @@ class Page
             </article>
             <section class="news">
                 <figure>
-                    <img src="/img/smart-recommendation.jpg" alt="pic-01">
+                    <img src="./img/smart-recommendation.jpg" alt="pic-01">
                     <figcaption>
                         <h4>
                             LibraWeb Introduces Smart Recommendation Engine
@@ -68,7 +68,7 @@ class Page
                     </figcaption>
                 </figure>
                 <figure>
-                    <img src="/img/cataloging.jpg" alt="pic-02">
+                    <img src="./img/cataloging.jpg" alt="pic-02">
                     <figcaption>
                         <h4>
                             Streamlined Cataloging
@@ -80,7 +80,7 @@ class Page
                     </figcaption>
                 </figure>
                 <figure>
-                    <img src="/img/award-winning.jpg" alt="pic-03">
+                    <img src="./img/award-winning.jpg" alt="pic-03">
                     <figcaption>
                         <h4>
                             Award-Winning Innovation
@@ -92,7 +92,7 @@ class Page
                     </figcaption>
                 </figure>
                 <figure>
-                    <img src="/img/reading-culture.jpg" alt="pic-04">
+                    <img src="./img/reading-culture.jpg" alt="pic-04">
                     <figcaption>
                         <h4>
                             LibraWeb Partners with National Literacy Campaign
