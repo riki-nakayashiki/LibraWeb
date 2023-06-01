@@ -13,10 +13,12 @@ echo Page::pageBanner();
 echo Page::roomRow();
 if (isset($_GET['purpose'])) {
     $purpose = $_GET['purpose'];
-    echo Page::createReservationPage($purpose);
-} else {
-    echo '<p>Please select a purpose to view available rooms for reservation.</p>';
+    $splitPurpose = explode(' ', $purpose);
+    $redirectUrl = "reservation.php?purpose=" . urlencode($splitPurpose[0]);
+    echo "<script>window.location.href='$redirectUrl';</script>";
+    exit();
 }
+
 echo Page::pageFooter();
 echo Page::pageEnd();
 

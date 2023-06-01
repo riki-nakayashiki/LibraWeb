@@ -156,6 +156,7 @@ body main {
   .room {
     display: flex;
     flex-direction: column;
+    text-align: center;
   }
   .room h2 {
     font-size: 24px;
@@ -163,26 +164,38 @@ body main {
   .room .slides {
     display: flex;
     flex-direction: column;
+    row-gap: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .room .slides figure {
+    display: flex;
+    -moz-column-gap: 5vh;
+         column-gap: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
   .room .slides figure img {
-    width: 50%;
-    height: 30%;
+    width: 40%;
+    height: 100%;
   }
   .room .slides figure figcaption {
+    display: flex;
+    flex-direction: column;
     text-align: center;
   }
   .room .slides figure figcaption i {
     display: block;
     font-size: 24px;
-    margin-bottom: 10px;
   }
   .room .slides figure figcaption h5 {
     font-size: 20px;
-    margin-bottom: 5px;
   }
   .room .slides figure figcaption h6 {
     font-size: 16px;
-    margin-bottom: 10px;
   }
   .room .slides figure figcaption a {
     display: inline-block;

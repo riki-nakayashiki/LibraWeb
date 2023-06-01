@@ -10,9 +10,11 @@ session_start();
 RoomDAO::startDb();
 echo Page::pageHeader("Reservation");
 echo Page::pageBanner();
-echo Page::roomTable(
-    RoomDAO::getAllRooms()
-);
+if (isset($_GET['purpose'])) {
+    $purpose = $_GET['purpose'];
+    $splitPurpose = explode(' ', $purpose);
+    echo Page::createReservationPage($splitPurpose[0]);
+};
 echo Page::pageFooter();
 echo Page::pageEnd();
 

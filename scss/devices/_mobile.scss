@@ -160,9 +160,12 @@ body {
       }
     }
   }
+
+  //   room row
   .room {
     display: flex;
     flex-direction: column;
+    text-align: center;
     h2 {
       font-size: 24px;
     }
@@ -170,29 +173,35 @@ body {
     .slides {
       display: flex;
       flex-direction: column;
+      row-gap: 3vh;
+      @include MakeCenter;
+
       figure {
+        display: flex;
+        column-gap: 5vh;
+        @include MakeCenter;
+        height: 100%;
         img {
-          width: 50%;
-          height: 30%;
+          width: 40%;
+          height: 100%;
         }
 
         figcaption {
+          display: flex;
+          flex-direction: column;
           text-align: center;
 
           i {
             display: block;
             font-size: 24px;
-            margin-bottom: 10px;
           }
 
           h5 {
             font-size: 20px;
-            margin-bottom: 5px;
           }
 
           h6 {
             font-size: 16px;
-            margin-bottom: 10px;
           }
 
           a {

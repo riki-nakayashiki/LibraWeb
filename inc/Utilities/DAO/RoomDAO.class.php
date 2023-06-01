@@ -65,9 +65,9 @@ class RoomDAO {
     }
 
     public static function getRoomByPurpose(string $purpose) {
-        $sql = "SELECT * FROM rooms WHERE purpose LIKE :purpose";
+        $sql = "SELECT * FROM rooms WHERE purpose = :purpose";
         self::$db->query($sql);
-        self::$db->bind(':purpose', $purpose . '%');
+        self::$db->bind(':purpose',$purpose);
         self::$db->execute();
         return self::$db->resultSet();
     }

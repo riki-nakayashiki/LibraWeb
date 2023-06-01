@@ -317,17 +317,17 @@ class Page
     public static function roomRow(): string {
         $images = array(
             array(
-                'src' => "./img/labtop.jpg",
+                'src' => "./img/pc.jpg",
                 'caption' => "10:00 - 17:00",
                 'title' => "Laptop Rooms"
             ),
             array(
-                'src' => "./img/library.jpg",
+                'src' => "./img/study.jpg",
                 'caption' => "10:00 - 19:00",
                 'title' => "Study Rooms"
             ),
             array(
-                'src' => "./img/meeting.jpg",
+                'src' => "./img/meet.jpg",
                 'caption' => "10:00 - 16:00",
                 'title' => "Meeting Rooms"
             )
@@ -343,7 +343,6 @@ class Page
                 <figure>
                     <img src="'. $image['src'] .'">
                     <figcaption>
-                        <i class="fa-solid fa-clock"></i>
                         <h5>'. $image['title'] .'</h5>
                         <h6>'. $image['caption'] .'</h6>
                         <a href="reservation.php?purpose='. $image['title'] .'">Reserve</a>
@@ -360,7 +359,10 @@ class Page
     }
 
     public static function createReservationPage($purpose) {
-        $rooms = RoomDAO::getRoomByPurpose($purpose);
+        $lowercasePurpose = strtolower($purpose);
+        // var_dump($lowercasePurpose);
+        $rooms = RoomDAO::getRoomByPurpose($lowercasePurpose);
+        
 
         $page = '<h2>Reservation</h2>';
 
