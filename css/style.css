@@ -105,7 +105,8 @@ body main {
     display: flex;
     flex-direction: column;
     row-gap: 0vh;
-    column-gap: 3vh;
+    -moz-column-gap: 3vh;
+         column-gap: 3vh;
     row-gap: 2vh;
     font-size: 30px;
   }
@@ -137,7 +138,8 @@ body main {
     display: flex;
     justify-content: center;
     align-items: center;
-    column-gap: 3vh;
+    -moz-column-gap: 3vh;
+         column-gap: 3vh;
     width: 90%;
     height: 20%;
     background-color: rgba(53, 52, 52, 0.7);
@@ -150,6 +152,49 @@ body main {
   }
   .infor .slides h5 {
     font-size: 16px;
+  }
+  .room {
+    display: flex;
+    flex-direction: column;
+  }
+  .room h2 {
+    font-size: 24px;
+  }
+  .room .slides {
+    display: flex;
+    flex-direction: column;
+  }
+  .room .slides figure img {
+    width: 50%;
+    height: 30%;
+  }
+  .room .slides figure figcaption {
+    text-align: center;
+  }
+  .room .slides figure figcaption i {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .room .slides figure figcaption h5 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .room .slides figure figcaption h6 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .room .slides figure figcaption a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  .room .slides figure figcaption a:hover {
+    background-color: #0056b3;
   }
   .footer {
     padding-top: 5vh;
@@ -300,7 +345,8 @@ body main {
   .infor .slides {
     background-color: gainsboro;
     flex-direction: row;
-    column-gap: 5vh;
+    -moz-column-gap: 5vh;
+         column-gap: 5vh;
     padding: 2%;
   }
   .infor .slides figure {
@@ -311,7 +357,8 @@ body main {
   .infor .slides figure img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     opacity: 1;
     transition: opacity 0.3s ease;
   }
@@ -361,7 +408,8 @@ body main {
     display: flex;
     flex-direction: row;
     width: 95%;
-    column-gap: 3vh;
+    -moz-column-gap: 3vh;
+         column-gap: 3vh;
   }
   .news-highlights .news figcaption {
     height: 40vh;

@@ -111,7 +111,7 @@ class Page
             array(
                 'src' => "./img/reading.jpg",
                 'caption' => "10:00 - 17:00",
-                'title' => "Reading Rooms"
+                'title' => "Public reading Rooms"
             )
         );
 
@@ -273,6 +273,106 @@ class Page
                 </body>
                 </html>';
         return $htmlPageEnd;
+    }
+
+
+    public static function roomTable( $roomList) {
+        $roomTable = '
+            <table class = "room">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Room Name</th>
+                        <th scope="col">capacity</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Purpose</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>';
+                    foreach($roomList as $room) {
+                        $roomTable .= self::buildRoomRow($room);
+                    }
+        $roomTable .= '</tbody>
+            </table>
+        ';
+
+        return $roomTable;
+    }
+
+    private static function buildRoomRow($newRoom){
+        $row = '
+            <tr>
+                <td>'.$newRoom->getId().'</td>
+                <td>'.$newRoom->getRoomName().'</td>
+                <td>'.$newRoom->getCapacity().'</td>
+                <td>'.$newRoom->getLocation().'</td>
+                <td>'.$newRoom->getPurpose().'</td>
+                <td>'.$newRoom->getStatus().'</td>
+            </tr>
+        ';
+
+        return $row;
+    }
+    public static function roomRow(): string {
+        $images = array(
+            array(
+                'src' => "./img/labtop.jpg",
+                'caption' => "10:00 - 17:00",
+                'title' => "Laptop Rooms"
+            ),
+            array(
+                'src' => "./img/library.jpg",
+                'caption' => "10:00 - 19:00",
+                'title' => "Study Rooms"
+            ),
+            array(
+                'src' => "./img/meeting.jpg",
+                'caption' => "10:00 - 16:00",
+                'title' => "Meeting Rooms"
+            )
+        );
+
+        $row = '<section class="room">
+                    <h2>rooms</h2>
+                    <aside class="slides">    
+                ';
+
+        foreach ($images as $image) {
+            $row .= '
+                <figure>
+                    <img src="'. $image['src'] .'">
+                    <figcaption>
+                        <i class="fa-solid fa-clock"></i>
+                        <h5>'. $image['title'] .'</h5>
+                        <h6>'. $image['caption'] .'</h6>
+                        <a href="reservation.php?purpose='. $image['title'] .'">Reserve</a>
+                    </figcaption>
+                </figure>
+            ';
+        }
+
+        $row .= '
+            </aside>
+        </section>';
+
+        return $row;
+    }
+
+    public static function createReservationPage($purpose) {
+        $rooms = RoomDAO::getRoomByPurpose($purpose);
+
+        $page = '<h2>Reservation</h2>';
+
+        foreach ($rooms as $room) {
+            $page .= '<h3>Room Name: ' . $room->getRoomName() . '</h3>';
+            $page .= '<p>Capacity: ' . $room->getCapacity() . '</p>';
+            $page .= '<p>Location: ' . $room->getLocation() . '</p>';
+            $page .= '<p>Purpose: ' . $room->getPurpose() . '</p>';
+            $page .= '<p>Status: ' . $room->getStatus() . '</p>';
+        }
+
+        return $page;
     }
 
 }
