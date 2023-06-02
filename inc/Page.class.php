@@ -359,47 +359,90 @@ class Page
     }
 
 
-    // page of reservation
+    // page of reservation with room information
     public static function createReservationPage($purpose) {
-
-        // make a lower case 
+        // make it lowercase 
         $lowercasePurpose = strtolower($purpose);
         // var_dump($lowercasePurpose);
         $rooms = RoomDAO::getRoomByPurpose($lowercasePurpose);
-        $page = self::roomTable($rooms);
 
         $page = '<h2>Make a Reservation!</h2>';
 
         foreach ($rooms as $room) {
+            $page .= '<div class="room-info ' . ($room->getStatus() ? 'available' : 'unavailable') . '">';
             $page .= '<h3>Room Name: ' . $room->getRoomName() . '</h3>';
             $page .= '<p>Capacity: ' . $room->getCapacity() . '</p>';
             $page .= '<p>Location: ' . $room->getLocation() . '</p>';
             $page .= '<p>Purpose: ' . $room->getPurpose() . '</p>';
-            $page .= '<p>Status: ' . $room->getStatus() ? 'available' : "invaliable" . '</p>';
+            $page .= '<strong>Status: ' . ($room->getStatus() ? 'available' : 'unavailable') . '</strong>';
+            $page .= '</div>';
         }
+
         return $page;
     }
 
-    // room page 
-    public static function reservationRow(): string
-    {
+
+
+
+    // reservation page 
+    public static function reservationRow($purpose): string {
+        // make it lowercase 
+        $lowercasePurpose = strtolower($purpose);
+        // var_dump($lowercasePurpose);
+        $rooms = RoomDAO::getRoomByPurpose($lowercasePurpose);
+
         $htmlRoom = '
-        <form action="reservation.php" method="post" action="'.$_SERVER["PHP_SELF"].'">
-            <label for="reservation">Select Room:</label>
-            <label for="date">Select Date:</label>
-            <input type="date" name="date" id="date" required>
+        <form class="reservation-form" action="reservation.php" method="post" action="'. $_SERVER["PHP_SELF"] .'">
+            <label for="room">Select Room:</label>
+            <select name="reservation" id="reservation">';
 
-            <label for="start-time">Start Time:</label>
-            <input type="time" name="starTime" id="starTime" required>
+        foreach ($rooms as $room) {
+            $htmlRoom .= '<option value="' . $room->getRoomName() . '">' . $room->getRoomName() . '</option>';
+        }
 
-            <label for="end-time">End Time:</label>
-            <input type="time" name="endTime" id="endTime" required>
+        $htmlRoom .= '</select>
 
-            <input type="submit" value="Reserve">
-        </form>
-        
-        ';
+        <label for="date">Select Date:</label>
+        <input type="date" name="date" id="date" required>';
+
+        // Generating reservation start time options
+        $startStartTime = 10;
+        $endStartTime = 15;
+
+        if ($lowercasePurpose === 'laptop') {
+            $endStartTime = 16;
+        } elseif ($lowercasePurpose === 'study') {
+            $endStartTime = 18;
+        }
+
+        $htmlRoom .= '<label for="start-time">Start Time:</label>';
+        $htmlRoom .= '<select name="start-time" id="start-time">';
+
+        for ($hour = $startStartTime; $hour <= $endStartTime; $hour++) {
+            $htmlRoom .= '<option value="' . $hour . ':00">' . $hour . ':00</option>';
+        }
+
+        $htmlRoom .= '</select>';
+
+        // Generating reservation end time options
+        $startEndTime = $startStartTime + 1;
+        $endEndTime = $endStartTime + 1;
+
+        $htmlRoom .= '<label for="end-time">End Time:</label>';
+        $htmlRoom .= '<select name="end-time" id="end-time">';
+
+        for ($hour = $startEndTime; $hour <= $endEndTime; $hour++) {
+            $htmlRoom .= '<option value="' . $hour . ':00">' . $hour . ':00</option>';
+        }
+
+        $htmlRoom .= '</select>';
+
+        $htmlRoom .= '<input type="submit" value="Reserve">
+        </form>';
+
         return $htmlRoom;
     }
+
+
 
 }

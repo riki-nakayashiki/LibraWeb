@@ -38,12 +38,12 @@ class RoomDAO {
         return self::$db->rowCount();
     }
 
-    public static function updateRoomById(Romm $room) {
-        $sql = "UPDATE rooms SET status:status where id =:id ";
+    public static function updateRoomByName(Romm $room) {
+        $sql = "UPDATE rooms SET status:status where roomName =:roomName ";
 
         self::$db->query($sql);
 
-        self::$db->bind(":id", $room->getId());
+        self::$db->bind(":roomName", $room->getRoomName());
         // self::$db->bind(":roomName", $room->getRoomName());
         // self::$db->bind(":capacity", $room->getCapacity());
         // self::$db->bind(":location", $room->getLocation());

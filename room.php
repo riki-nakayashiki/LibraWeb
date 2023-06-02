@@ -10,7 +10,7 @@ session_start();
 RoomDAO::startDb();
 echo Page::pageHeader("Room");
 echo Page::pageBanner();
-// echo Page::roomRow();
+echo Page::roomRow();
 if (isset($_GET['purpose'])) {
     $purpose = $_GET['purpose'];
     $splitPurpose = explode(' ', $purpose);
