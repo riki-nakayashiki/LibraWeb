@@ -1,7 +1,7 @@
 <?php
 
 class BooksSort {
-    private $booksList;
+    private $booksList = [];
 
     public function getBooksList() {
         return $this->booksList;
