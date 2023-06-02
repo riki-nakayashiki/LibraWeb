@@ -8,16 +8,13 @@ require_once("./inc/Page.class.php");
 
 session_start();
 RoomDAO::startDb();
-echo Page::pageHeader("Room");
+echo Page::pageHeader("success");
 echo Page::pageBanner();
-// echo Page::roomRow();
-if (isset($_GET['purpose'])) {
-    $purpose = $_GET['purpose'];
-    $splitPurpose = explode(' ', $purpose);
-    $redirectUrl = "reservation.php?purpose=" . urlencode($splitPurpose[0]);
-    echo "<script>window.location.href='$redirectUrl';</script>";
-    exit();
-}
+// if (isset($_GET['purpose'])) {
+//     $purpose = $_GET['purpose'];
+//     $splitPurpose = explode(' ', $purpose);
+//     echo Page::createReservationPage($splitPurpose[0]);
+// };
 echo Page::pageFooter();
 echo Page::pageEnd();
 

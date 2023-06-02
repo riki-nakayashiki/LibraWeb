@@ -15,6 +15,7 @@ if (isset($_GET['purpose'])) {
     $splitPurpose = explode(' ', $purpose);
     echo Page::createReservationPage($splitPurpose[0]);
 };
+echo Page::reservationRow();
 echo Page::pageFooter();
 echo Page::pageEnd();
 

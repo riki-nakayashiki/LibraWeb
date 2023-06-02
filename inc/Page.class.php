@@ -358,23 +358,48 @@ class Page
         return $row;
     }
 
+
+    // page of reservation
     public static function createReservationPage($purpose) {
+
+        // make a lower case 
         $lowercasePurpose = strtolower($purpose);
         // var_dump($lowercasePurpose);
         $rooms = RoomDAO::getRoomByPurpose($lowercasePurpose);
-        
+        $page = self::roomTable($rooms);
 
-        $page = '<h2>Reservation</h2>';
+        $page = '<h2>Make a Reservation!</h2>';
 
         foreach ($rooms as $room) {
             $page .= '<h3>Room Name: ' . $room->getRoomName() . '</h3>';
             $page .= '<p>Capacity: ' . $room->getCapacity() . '</p>';
             $page .= '<p>Location: ' . $room->getLocation() . '</p>';
             $page .= '<p>Purpose: ' . $room->getPurpose() . '</p>';
-            $page .= '<p>Status: ' . $room->getStatus() . '</p>';
+            $page .= '<p>Status: ' . $room->getStatus() ? 'available' : "invaliable" . '</p>';
         }
-
         return $page;
+    }
+
+    // room page 
+    public static function reservationRow(): string
+    {
+        $htmlRoom = '
+        <form action="reservation.php" method="post" action="'.$_SERVER["PHP_SELF"].'">
+            <label for="reservation">Select Room:</label>
+            <label for="date">Select Date:</label>
+            <input type="date" name="date" id="date" required>
+
+            <label for="start-time">Start Time:</label>
+            <input type="time" name="starTime" id="starTime" required>
+
+            <label for="end-time">End Time:</label>
+            <input type="time" name="endTime" id="endTime" required>
+
+            <input type="submit" value="Reserve">
+        </form>
+        
+        ';
+        return $htmlRoom;
     }
 
 }
