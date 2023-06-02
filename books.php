@@ -18,6 +18,10 @@ if(!empty($_GET)){
     $booksMap->sortBooks($_GET['sortBy']);
 }
 
+if(!empty($_POST['search'])) {
+    $booksMap->setBooksList(BooksDAO::searchingSorting($_POST['search']));
+}
+
 echo Page::filter();
 echo Page::pageTable(
     $booksMap->getBooksList()

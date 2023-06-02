@@ -52,4 +52,23 @@ class BooksSort {
             break;
         }
     }
+
+    public function searchBooks($booksField){
+        $booksArray = [];
+
+        foreach($this->$booksList as $book){
+            if(
+                str_contains($book->getid(),$booksField) ||
+                str_contains($book->getIsbn(),$booksField) ||
+                str_contains(strtolower($book->getBookTitle()),$booksField) ||
+                str_contains(strtolower($book->getBookAuthor()),$booksField) ||
+                str_contains(strtolower($book->getPublication()),$booksField) ||
+                str_contains(strtolower($book->getPublisher()),$booksField)
+            )
+
+            $booksArray[] = $book;
+        }
+
+        return $booksArray;
+    }
 }
