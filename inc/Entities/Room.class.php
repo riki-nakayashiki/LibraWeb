@@ -7,6 +7,9 @@ class Room {
     private int $capacity;
     private string $location;
 	private string $purpose;
+	private string $date;
+	private string $startTime;
+	private string $endTime;
 	private bool $status;
 
 	public function getId():int {
@@ -46,6 +49,30 @@ class Room {
 
 	public function setPurpose(string $purpose) {
 		$this->purpose = $purpose;
+	}
+    // private string $date;
+	public function getDate():string {
+		return $this->date;
+	}
+
+	public function setDate(string $date) {
+		$this->date = $date;
+	}
+    // private string $startTime;
+	public function getStartTime():string {
+		return $this->startTime;
+	}
+
+	public function setStartTime(string $startTime) {
+		$this->startTime = $startTime;
+	}
+    // private string $endTime;
+	public function getEndTime():string {
+		return $this->endTime;
+	}
+
+	public function setEndTime(string $endTime) {
+		$this->endTime = $endTime;
 	}
     // private bool $status;
 	public function getStatus():bool {

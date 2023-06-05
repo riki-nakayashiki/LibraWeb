@@ -221,31 +221,54 @@ body {
       }
     }
   }
+
   .room-info {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    h3 {
-      font-size: 18px;
-      margin-bottom: 5px;
+    width: 100%;
+    font-size: 14px;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 3%;
+
+    th {
+      background-color: #e9f1f7;
+      padding: 8px;
+      font-weight: bold;
+      text-align: left;
+      border: 1px solid gray;
+      // #1d84b5;
     }
-    p {
-      font-size: 14px;
-      margin-bottom: 3px;
+
+    td {
+      padding: 8px;
+      border-bottom: 1px solid black;
     }
-    strong {
-      font-size: 16px;
-      color: #333;
-    }
-  }
-  .room-info.available {
-    background-color: #50c878;
   }
 
-  .room-info.unavailable {
-    background-color: #ffb3b3;
-  }
+  // .room-info {
+  //   margin-bottom: 20px;
+  //   padding: 10px;
+  //   background-color: #f2f2f2;
+  //   border: 1px solid #ccc;
+  //   h3 {
+  //     font-size: 18px;
+  //     margin-bottom: 5px;
+  //   }
+  //   p {
+  //     font-size: 14px;
+  //     margin-bottom: 3px;
+  //   }
+  //   strong {
+  //     font-size: 16px;
+  //     color: #333;
+  //   }
+  // }
+  // .room-info.available {
+  //   background-color: #50c878;
+  // }
+
+  // .room-info.unavailable {
+  //   background-color: #ffb3b3;
+  // }
   .reservation-form {
     display: flex;
     flex-direction: column;
@@ -263,6 +286,15 @@ body {
     }
     input[type="submit"] {
       background-color: #e9f1f7;
+    }
+  }
+  .message {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    a {
+      text-decoration: none;
+      color: black;
     }
   }
 

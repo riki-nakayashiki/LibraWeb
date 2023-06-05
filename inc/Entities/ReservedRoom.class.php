@@ -1,68 +1,72 @@
 <?php
 
 class ReservedRoom {
-
     private int $id;
     private int $roomId;
     private int $userId;
     private string $roomName;
     private string $dateOfReserved;
+    private string $date;
     private string $startTime;
     private string $endTime;
 
-	public function getId():int {
-		return $this->id;
-	}
+    public function getId(): int {
+        return $this->id;
+    }
 
-    // private int $roomId;
-	public function getRoomId():int {
-		return $this->roomId;
-	}
+    public function getRoomId(): int {
+        return $this->roomId;
+    }
 
-	public function setRoomId(int $roomId) {
-		$this->roomId = $roomId;
-	}
+    public function setRoomId(int $roomId) {
+        $this->roomId = $roomId;
+    }
 
-    // private int $userId;
-	public function getUserId():int {
-		return $this->userId;
-	}
+    public function getUserId(): int {
+        return $this->userId;
+    }
 
-	public function setUserId(int $userId) {
-		$this->userId = $userId;
-	}
+    public function setUserId(int $userId) {
+        $this->userId = $userId;
+    }
 
-    // private string $roomName;
-	public function getRoomName():string {
-		return $this->roomName;
-	}
+    public function getRoomName(): string {
+        return $this->roomName;
+    }
 
-	public function setRoomName(string $roomName) {
-		$this->roomName = $roomName;
-	}
-    // private string $dateOfReserved;
-	public function getDataOfReserved():string {
-		return $this->dateOfReserved;
-	}
+    public function setRoomName(string $roomName) {
+        $this->roomName = $roomName;
+    }
 
-	public function setDataOfReserved(string $dateOfReserved) {
-		$this->dateOfReserved = $dateOfReserved;
-	}
-    // private string $startTime;
-	public function getStartTime():string {
-		return $this->startTime;
-	}
+    public function getDateOfReserved(): string {
+        return $this->dateOfReserved;
+    }
 
-	public function setStartTime(string $startTime) {
-		$this->startTime = $startTime;
-	}
-    // private string $endTime;
-	public function getEndTime():string {
-		return $this->endTime;
-	}
+    public function setDateOfReserved(string $dateOfReserved) {
+        $this->dateOfReserved = $dateOfReserved;
+    }
 
-	public function setEndTime(string $endTime) {
-		$this->endTime = $endTime;
-	}
+    public function getDate(): string {
+        return $this->date;
+    }
 
+    public function setDate(string $date) {
+        $this->date = $date;
+    }
+
+    public function getStartTime(): string {
+        return $this->startTime;
+    }
+
+    public function setStartTime(string $startTime) {
+        $this->startTime = $startTime;
+    }
+
+    public function getEndTime(): string {
+        return $this->endTime;
+    }
+
+    public function setEndTime(string $endTime) {
+        $this->endTime = $endTime;
+    }
 }

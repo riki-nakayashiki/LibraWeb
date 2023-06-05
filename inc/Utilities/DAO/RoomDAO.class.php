@@ -38,27 +38,22 @@ class RoomDAO {
         return self::$db->rowCount();
     }
 
-    public static function updateRoomByName(Romm $room) {
-        $sql = "UPDATE rooms SET status:status where roomName =:roomName ";
+    public static function updateRoomStatus($room) {
+        $sql = "UPDATE rooms SET status = :status WHERE id = :id";
 
         self::$db->query($sql);
-
-        self::$db->bind(":roomName", $room->getRoomName());
-        // self::$db->bind(":roomName", $room->getRoomName());
-        // self::$db->bind(":capacity", $room->getCapacity());
-        // self::$db->bind(":location", $room->getLocation());
-        // self::$db->bind(":purpose", $room->getPurpose());
-        self::$db->bind(":status", $room->getStatus());
+        self::$db->bind(":id", $room);
+        self::$db->bind(":status", true);
         self::$db->execute();
         return self::$db->lastInsertedId();
     }
 
-    public static function getRoomByRoomName( string $roomName ) {
-        $sql = "SELECT * FROM rooms WHERE roomName=:room";
+    public static function getRoomById( int $id ) {
+        $sql = "SELECT * FROM rooms WHERE id=:id";
 
         self::$db->query($sql);
 
-        self::$db->bind(":room",$roomName);
+        self::$db->bind(":id",$id);
         self::$db->execute();
 
         return self::$db->singleResult();
@@ -71,4 +66,19 @@ class RoomDAO {
         self::$db->execute();
         return self::$db->resultSet();
     }
+    // RoomDAO class
+
+    public static function getStatus($roomId) {
+        $pdo = PDOService::getConnection();
+
+        $query = "SELECT status FROM rooms WHERE id = :roomId";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindValue(':roomId', $roomId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $status = $stmt->fetchColumn();
+
+        return $status;
+    }
+
 }
