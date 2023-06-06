@@ -37,6 +37,39 @@ body {
       width: 100px;
     }
 
+    //Login Form
+    .loginForm {
+      @include MakeCenter;
+      margin: 1%;
+      padding: 3%;
+      background-color: $thirdColor;
+      border-radius: 15px;
+      // border: 1px solid $mainColor;
+
+      table {
+        padding: 20%;
+      }
+
+      tbody {
+        @include MakeColumn;
+        row-gap: 30px;
+      }
+
+      td>label {
+        width: 8vw;
+      }
+
+      .loginButton {
+        @include MakeCenter;
+      }
+
+      [type="submit"] {
+        width: 10vw;
+        background-color: $secondaryColor;
+        color: white;
+      }
+    }
+
     a {
       font-size: 24px;
       height: 40px;
@@ -166,6 +199,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+
     h2 {
       font-size: 24px;
     }
@@ -181,6 +215,7 @@ body {
         column-gap: 5vh;
         @include MakeCenter;
         height: 100%;
+
         img {
           width: 40%;
           height: 100%;
@@ -275,23 +310,28 @@ body {
     align-items: center;
     padding: 20px;
     row-gap: 3vh;
+
     label {
       display: flex;
     }
+
     select,
     input {
       width: 100%;
       padding: 10px;
       font-size: 16px;
     }
+
     input[type="submit"] {
       background-color: #e9f1f7;
     }
   }
+
   .message {
     display: flex;
     flex-direction: column;
     width: 100%;
+
     a {
       text-decoration: none;
       color: black;

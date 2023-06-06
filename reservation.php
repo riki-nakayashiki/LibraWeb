@@ -8,7 +8,7 @@ require_once("./inc/Utilities/DAO/RoomDAO.class.php");
 require_once("./inc/Utilities/DAO/ReservedRoomDAO.class.php");
 require_once("./inc/Page.class.php");
 
-session_start();
+// session_start();
 RoomDAO::startDb();
 ReservedRoomDAO::startDb();
 echo Page::pageHeader("Reservation");

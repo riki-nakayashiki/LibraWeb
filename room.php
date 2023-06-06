@@ -6,7 +6,7 @@ require_once("./inc/Utilities/PDOService.class.php");
 require_once("./inc/Utilities/DAO/RoomDAO.class.php");
 require_once("./inc/Page.class.php");
 
-session_start();
+// session_start();
 RoomDAO::startDb();
 echo Page::pageHeader("Room");
 echo Page::pageBanner();
