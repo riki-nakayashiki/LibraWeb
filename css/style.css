@@ -39,7 +39,7 @@ body main {
   .header-main img {
     width: 100px;
   }
-  .header-main .loginForm {
+  .loginForm {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,29 +48,29 @@ body main {
     background-color: #E9F1F7;
     border-radius: 15px;
   }
-  .header-main .loginForm table {
+  .loginForm table {
     padding: 20%;
   }
-  .header-main .loginForm tbody {
+  .loginForm tbody {
     display: flex;
     flex-direction: column;
     row-gap: 0vh;
     row-gap: 30px;
   }
-  .header-main .loginForm td > label {
+  .loginForm td > label {
     width: 8vw;
   }
-  .header-main .loginForm .loginButton {
+  .loginForm .loginButton {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .header-main .loginForm [type=submit] {
+  .loginForm [type=submit] {
     width: 10vw;
     background-color: #50C878;
     color: white;
   }
-  .header-main a {
+  a {
     font-size: 24px;
     height: 40px;
     width: 100px;
