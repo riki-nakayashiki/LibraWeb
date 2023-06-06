@@ -1,6 +1,6 @@
 <?php
 
-require_once("inc/Utilities/Page.class.php");
+require_once("./inc/Page.class.php");
 
 echo Page::pageHeader("LibraWeb");
 echo Page::pageBanner();

@@ -52,9 +52,9 @@ class Page
                         </header>
                         <nav class="nav-main">
                             <ul class="d-none d-md-flex justify-content-between">
-                                <li><a href="index.php">About</a></li>
+                                <li><a href="#">About</a></li>
                                 <li><a href="books.php">Books</a></li>
-                                <li><a href="#">Rooms</a></li>
+                                <li><a href="room.php">Rooms</a></li>
                                 <li><a href="#">Contact / Reviews</a></li>
                                 ' . $adminMenu . '
                             </ul>
@@ -111,7 +111,7 @@ class Page
             array(
                 'src' => "./img/reading.jpg",
                 'caption' => "10:00 - 17:00",
-                'title' => "Reading Rooms"
+                'title' => "Public reading Rooms"
             )
         );
 
@@ -275,6 +275,77 @@ class Page
         return $htmlPageEnd;
     }
 
+
+    public static function roomTable($roomList)
+    {
+        $lowercasePurpose = strtolower($roomList);
+        // var_dump($lowercasePurpose);
+        $rooms = RoomDAO::getRoomByPurpose($lowercasePurpose);
+        
+        // get the list of rooms
+        $roomNames = array();
+        foreach ($rooms as $room) {
+            $roomName = $room->getRoomName();
+            if (!in_array($roomName, $roomNames)) {
+                $roomNames[] = $roomName;
+            }
+        }
+        
+        // build table by using name of Room 
+        $roomTables = '';
+        foreach ($roomNames as $roomName) {
+            $roomTables .= self::buildRoomTable($roomName, $rooms);
+        }
+        
+        return $roomTables;
+    }
+
+    private static function buildRoomTable($roomName, $rooms)
+    {
+        $roomTable = '
+            <table class="room-info">
+                <thead>
+                    <tr>
+                        <th scope="col">Room Id</th>
+                        <th scope="col">Room</th>
+                        <th scope="col">capacity</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Start</th>
+                        <th scope="col">End</th>
+                    </tr>
+                </thead>
+                <tbody>';
+                
+        foreach ($rooms as $room) {
+            $roomStatus = $room->getStatus();
+            if(!$roomStatus) {
+                if ($room->getRoomName() === $roomName) {
+                    $roomTable .= self::buildRoomRow($room);
+                }
+
+            }
+        }
+        
+        $roomTable .= '</tbody>
+            </table>';
+        
+        return $roomTable;
+    }
+
+    private static function buildRoomRow($newRoom)
+    {   
+        $statusColor = $newRoom->getStatus() ? 'red' : 'gainsboro';
+        $row = '
+            <tr style="background-color: '.$statusColor.';">
+                <td>'.$newRoom->getId().'</td>
+                <td>'.$newRoom->getRoomName().'</td>
+                <td>'.$newRoom->getCapacity().'</td>
+                <td>'.$newRoom->getLocation().'</td>
+                <td>'.$newRoom->getStartTime().'</td>
+                <td>'.$newRoom->getEndTime().'</td>
+            </tr>';
+        return $row;
+    }
     /**
      * @return string
      */
@@ -317,6 +388,188 @@ class Page
         return $row;
     }
 
+    public static function roomRow(): string {
+        $images = array(
+            array(
+                'src' => "./img/pc.jpg",
+                'caption' => "10:00 - 17:00",
+                'title' => "Laptop Rooms"
+            ),
+            array(
+                'src' => "./img/study.jpg",
+                'caption' => "10:00 - 19:00",
+                'title' => "Study Rooms"
+            ),
+            array(
+                'src' => "./img/meet.jpg",
+                'caption' => "10:00 - 16:00",
+                'title' => "Meeting Rooms"
+            )
+        );
+
+        $row = '<section class="room">
+                    <h2>rooms</h2>
+                    <aside class="slides">    
+                ';
+
+        foreach ($images as $image) {
+            $row .= '
+                <figure>
+                    <img src="'. $image['src'] .'">
+                    <figcaption>
+                        <h5>'. $image['title'] .'</h5>
+                        <h6>'. $image['caption'] .'</h6>
+                        <a href="reservation.php?purpose='. $image['title'] .'">Reserve</a>
+                    </figcaption>
+                </figure>
+            ';
+        }
+
+        $row .= '
+            </aside>
+        </section>';
+
+        return $row;
+    }
+
+
+    // page of reservation with room information
+    public static function createReservationPage($purpose) {
+        // make it lowercase 
+        $lowercasePurpose = strtolower($purpose);
+        // var_dump($lowercasePurpose);
+        $rooms = RoomDAO::getRoomByPurpose($lowercasePurpose);
+
+        $page = '<h2>Make a Reservation!</h2>';
+
+        foreach ($rooms as $room) {
+            $page .= '<div class="room-info ' . ($room->getStatus() ? 'available' : 'unavailable') . '">';
+            $page .= '<h3>Room Name: ' . $room->getRoomName() . '</h3>';
+            $page .= '<p>Capacity: ' . $room->getCapacity() . '</p>';
+            $page .= '<p>Location: ' . $room->getLocation() . '</p>';
+            $page .= '<p>Purpose: ' . $room->getPurpose() . '</p>';
+            $page .= '<strong>Status: ' . ($room->getStatus() ? 'available' : 'unavailable') . '</strong>';
+            $page .= '</div>';
+        }
+
+        return $page;
+    }
+
+
+
+    //success message
+    public static function getSuccessMessage(){
+        $htmlSuccess = '
+        <article class="messgae">
+            <aside>
+                <h1>Reservation Successful!</h1>
+                <p>Your reservation has been successfully made.</p>
+                <p>Thank you for choosing our service.</p>
+                <a href="room.php">Rooms</a>
+            </aside>
+        </article>
+        ';
+        return $htmlSuccess;
+    }
+    //success message
+    public static function getFailMessage(){
+        $htmlSuccess = '
+        <article class="messgae">
+            <aside>
+                <h1>Reservation Fail!</h1>
+                <p>Your reservation has been failed.</p>
+                <p>Please Try again</p>
+                <a href="room.php">Rooms</a>
+            </aside>
+        </article>
+        ';
+        return $htmlSuccess;
+    }
+    // reservation page 
+    public static function reservationRow($purpose): string {
+        // make it lowercase 
+        $lowercasePurpose = strtolower($purpose);
+        // var_dump($lowercasePurpose);
+        $rooms = RoomDAO::getRoomByPurpose($lowercasePurpose);
+
+
+        $htmlRoom = '
+        <form class="reservation-form" action="reservation.php" method="post" action="'. $_SERVER["PHP_SELF"] .'">
+            <label for="roomId">Room ID:</label>
+            <select name="roomId" id="roomId">';
+
+        // Iterate through the rooms to populate room IDs
+        foreach ($rooms as $room) {
+            $roomId = $room->getId();
+            $roomStatus = $room->getStatus();
+            if(!$roomStatus) {
+                $htmlRoom .= '<option value="' . $roomId . '">' . $roomId . '</option>';
+            }
+        }
+
+        $htmlRoom .= '</select>
+                
+        <label for="roomName">Select Room:</label>
+        <select name="roomName" id="roomName">';
+
+        // Delete duplicate room names
+        $uniqueRoomNames = array();
+
+        foreach ($rooms as $room) {
+            $roomName = $room->getRoomName();
+            if (!in_array($roomName, $uniqueRoomNames)) {
+                $htmlRoom .= '<option value="' . $roomName . '">' . $roomName . '</option>';
+                $uniqueRoomNames[] = $roomName; // Exclude duplicates and add RoomName to the array
+            }
+        }
+
+        $htmlRoom .= '</select>
+                
+        <label for="date">Select Date:</label>
+        <input type="date" name="date" id="date" required>';
+
+        // Generating reservation start time options
+        $startStartTime = 10;
+        $endStartTime = 15;
+
+        if ($lowercasePurpose === 'laptop') {
+            $endStartTime = 16;
+        } elseif ($lowercasePurpose === 'study') {
+            $endStartTime = 18;
+        }
+
+        $htmlRoom .= '<label for="start-time">Start Time:</label>';
+        $htmlRoom .= '<select name="start-time" id="start-time">';
+
+        for ($hour = $startStartTime; $hour <= $endStartTime; $hour++) {
+            $htmlRoom .= '<option value="' . $hour . ':00">' . $hour . ':00</option>';
+        }
+
+        $htmlRoom .= '</select>';
+
+        // Generating reservation end time options
+        $startEndTime = $startStartTime + 1;
+        $endEndTime = $endStartTime + 1;
+
+        $htmlRoom .= '<label for="end-time">End Time:</label>';
+        $htmlRoom .= '<select name="end-time" id="end-time">';
+
+        for ($hour = $startEndTime; $hour <= $endEndTime; $hour++) {
+            $htmlRoom .= '<option value="' . $hour . ':00">' . $hour . ':00</option>';
+        }
+
+        $htmlRoom .= '</select>';
+
+        $htmlRoom .= '<input type="submit" value="Reserve">
+        </form>';
+
+        return $htmlRoom;
+
+
+    }
+
+
+
     public static function filter(){
         $filtering = '
         <nav class="navbar bg-body-tertiary">
@@ -329,5 +582,5 @@ class Page
 
         return $filtering;
     }
-
+    
 }

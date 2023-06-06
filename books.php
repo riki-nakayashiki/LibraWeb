@@ -5,7 +5,7 @@ require_once("inc/Entities/Books.class.php");
 require_once("inc/Entities/BooksSort.class.php");
 require_once("inc/Utilities/PDOService.class.php");
 require_once("inc/Utilities/DAO/BooksDAO.class.php");
-require_once("inc/Utilities/Page.class.php");
+require_once("inc/Page.class.php");
 
 BooksDAO::startDb();
 $booksMap = new BooksSort();
