@@ -52,7 +52,7 @@ class Page
                         </header>
                         <nav class="nav-main">
                             <ul class="d-none d-md-flex justify-content-between">
-                                <li><a href="#">About</a></li>
+                                <li><a href="index.php">About</a></li>
                                 <li><a href="books.php">Books</a></li>
                                 <li><a href="room.php">Rooms</a></li>
                                 <li><a href="#">Contact / Reviews</a></li>
@@ -62,9 +62,9 @@ class Page
                                 <summary class="fa-solid fa-bars d-flex justify-content-end">
                                 </summary>
                                 <ul>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Books</a></li>
-                                    <li><a href="#">Rooms</a></li>
+                                    <li><a href="index.php">About</a></li>
+                                    <li><a href="books.php">Books</a></li>
+                                    <li><a href="room.php">Rooms</a></li>
                                     <li><a href="#">Contact/Reviews</a></li>
                                     ' . $adminMenu . '
                                 </ul>
