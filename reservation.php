@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo page::getSuccessMessage();
             exit;
         } else {
-            echo $errorMessage = "Failed to insert reserved room";
+            echo page::getFailMessage();
         }
 
     } else {
@@ -57,6 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if (isset($_GET['purpose'])) {
     $purpose = $_GET['purpose'];
     $splitPurpose = explode(' ', $purpose);
+    $currentDate = date('Y-m-d');
+    echo Page::getCurrentDate();
     echo Page::roomTable($splitPurpose[0]);
     echo Page::reservationRow($splitPurpose[0]);
 };

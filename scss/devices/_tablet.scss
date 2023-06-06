@@ -32,6 +32,19 @@
       border: 2px solid $mainColor;
     }
   }
+  .message {
+    width: 90%;
+    margin-left: 5%;
+    .current {
+      h4 {
+        font-size: 22px;
+      }
+
+      h5 {
+        font-size: 18px;
+      }
+    }
+  }
 
   .footer {
     h4 {

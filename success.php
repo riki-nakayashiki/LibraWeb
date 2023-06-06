@@ -10,7 +10,7 @@ session_start();
 RoomDAO::startDb();
 echo Page::pageHeader("success");
 echo Page::pageBanner();
-echo Page::getSuccessMessage();
+echo Page::getFailMessage();
 echo Page::pageFooter();
 echo Page::pageEnd();
 

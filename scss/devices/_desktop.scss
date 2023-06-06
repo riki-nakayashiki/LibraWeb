@@ -2,7 +2,8 @@
   // slide show of information row
   .infor {
     width: 100%;
-
+    height: 60vh;
+    margin-top: 8%;
     .slides {
       background-color: gainsboro;
       flex-direction: row;
@@ -80,6 +81,34 @@
 
       figcaption {
         height: 40vh;
+      }
+    }
+  }
+
+  .message {
+    width: 95%;
+    margin-left: 2.5%;
+    .current {
+      h1 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 30px;
+      }
+      h4 {
+        font-size: 25px;
+      }
+
+      h5 {
+        font-size: 21px;
+      }
+      a {
+        transition: 0.3s;
+        font-size: 20px;
+      }
+      a:hover {
+        background-color: gainsboro;
+        color: #36ac5d;
       }
     }
   }
