@@ -57,7 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if (isset($_GET['purpose'])) {
     $purpose = $_GET['purpose'];
     $splitPurpose = explode(' ', $purpose);
-    // echo Page::createReservationPage($splitPurpose[0]);
     echo Page::roomTable($splitPurpose[0]);
     echo Page::reservationRow($splitPurpose[0]);
 };

@@ -53,7 +53,7 @@ class Page
                         <nav class="nav-main">
                             <ul class="d-none d-md-flex justify-content-between">
                                 <li><a href="#">About</a></li>
-                                <li><a href="#">Books</a></li>
+                                <li><a href="books.php">Books</a></li>
                                 <li><a href="room.php">Rooms</a></li>
                                 <li><a href="#">Contact / Reviews</a></li>
                                 ' . $adminMenu . '
@@ -344,6 +344,46 @@ class Page
                 <td>'.$newRoom->getStartTime().'</td>
                 <td>'.$newRoom->getEndTime().'</td>
             </tr>';
+        return $row;
+    }
+    /**
+     * @return string
+     */
+    public static function pageTable($bookList) : string {
+        $table = '
+            <table class="table caption-top">
+            <thead>
+            <tr>
+                <th scope="col"><a href="?sortBy=id">#</a></th>
+                <th scope="col"><a href="?sortBy=isbn">Isbn</a></th>
+                <th scope="col"><a href="?sortBy=title">Title</a></th>
+                <th scope="col"><a href="?sortBy=author">Author</a></th>
+                <th scope="col"><a href="?sortBy=publication">Publication</a></th>
+                <th scope="col"><a href="?sortBy=publisher">Publisher</a></th>
+            </tr>
+            </thead>
+            <tbody>';
+                foreach($bookList as $book) {
+                    $table .= self::rows($book);
+                }
+            $table .= '</tbody>
+            </table>
+        ';
+
+        return $table;
+    }
+
+    public static function rows($books) {
+        $row = '
+            <tr>
+                <td>'.$books->getId().'</td>
+                <td>'.$books->getIsbn().'</td>
+                <td>'.$books->getBookTitle().'</td>
+                <td>'.$books->getBookAuthor().'</td>
+                <td>'.$books->getPublication().'</td>
+                <td>'.$books->getPublisher().'</td>
+            </tr>
+        ';
 
         return $row;
     }
@@ -530,4 +570,17 @@ class Page
 
 
 
+    public static function filter(){
+        $filtering = '
+        <nav class="navbar bg-body-tertiary">
+          <form class="d-flex" role="search" method="POST" action="'.$_SERVER["PHP_SELF"].'">
+            <input class="form-control me-2" type="search" name="search" placeholder="Search a book" aria-label="Search">
+            <input class="btn btn-outline-success" type="submit" value="Search">
+          </form>
+        </nav>
+        ';
+
+        return $filtering;
+    }
+    
 }
