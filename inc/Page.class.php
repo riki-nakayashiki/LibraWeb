@@ -29,11 +29,23 @@ class Page
      */
     public static function pageBanner(): string
     {
-        // Temporary code
-        $userType = 1;
         $adminMenu = "";
-        if ($userType == 1) {
-            $adminMenu = '<li><a href="#">Admin page</a></li>';
+
+        session_start();
+        if (isset($_SESSION['username'])) {
+            $user = $_SESSION['username'];
+            $loginUser = 'USER NAME : ' . $user->getFirstName() . ' ' . $user->getLastName();
+
+            $loginButton = '<a href="logout.php" class="bg-info text-white">Logout</a>';
+
+            //Check if the user is admin.
+            if ($user->getUserType() === 'Admin') {
+                $adminMenu = '<li><a href="#">Admin page</a></li>';
+            }
+
+        } else {
+            $loginUser = '';
+            $loginButton = '<a href="login.php" class="bg-info text-white">Login</a>';
         }
 
         $htmlBanner = '
@@ -47,12 +59,13 @@ class Page
                                         </h1>
                                     </figcaption>
                                 </figure>
-                                <a href="#" class="bg-info text-white">Login</a>
+                                <h2>' . $loginUser . '</h2>
+                                ' . $loginButton . '
                             </section>
                         </header>
                         <nav class="nav-main">
                             <ul class="d-none d-md-flex justify-content-between">
-                                <li><a href="#">About</a></li>
+                                <li><a href="index.php">About</a></li>
                                 <li><a href="#">Books</a></li>
                                 <li><a href="#">Rooms</a></li>
                                 <li><a href="#">Contact / Reviews</a></li>
@@ -87,11 +100,12 @@ class Page
         return $mainContent;
     }
 
-     /**
+    /**
      *@return string 
      */
 
-     public static function informationRow(): string{
+    public static function informationRow(): string
+    {
         $images = array(
             array(
                 'src' => "./img/labtop.jpg",
@@ -123,12 +137,12 @@ class Page
         foreach ($images as $image) {
             $row .= '
                 <figure>
-                    <img src="'. $image['src'] .'">
+                    <img src="' . $image['src'] . '">
                     <figcaption>
                         <i class="fa-solid fa-clock"></i>
                         
-                            <h5>'. $image['title'] .'</h5>
-                            <h6>'. $image['caption'] .'</h6>
+                            <h5>' . $image['title'] . '</h5>
+                            <h6>' . $image['caption'] . '</h6>
                     
                     </figcaption>
                 </figure>
@@ -140,12 +154,13 @@ class Page
         </section>';
 
         return $row;
-     }
+    }
 
     /**
      * @return string
      */
-    public static function newsContent() : string {
+    public static function newsContent(): string
+    {
         $news = '
         <section class="news-highlights">
             <article>
@@ -273,6 +288,43 @@ class Page
                 </body>
                 </html>';
         return $htmlPageEnd;
+    }
+
+    public static function loginForm()
+    {
+        $loginForm = '
+        <form method="POST" action="' . $_SERVER["PHP_SELF"] . '" class="loginForm">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><label for="loginEmail">Email: </label></td>
+                        <td><input type="email" placeholder="Enter Email" name="email" id="loginEmail"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="loginPassword">Password:</label></td>
+                        <td><input type="password" name="password" id="loginPassword" placeholder="Password"></td>
+                    </tr>
+                    <tr class="loginButton">
+                        <td><input type="submit" class="btn" value="Login"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        ';
+        return $loginForm;
+    }
+
+    public static function loginFailed()
+    {
+        return '
+        <div class="alert alert-danger" role="alert">
+        Wrong Email or Password!
+        </div>
+        ';
+    }
+    public static function logOut()
+    {
+        return '<h1 class="text-center">You are Logged Out!</h1>';
     }
 
 }

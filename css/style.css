@@ -151,6 +151,37 @@ body main {
   .infor .slides h5 {
     font-size: 16px;
   }
+  .loginForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    padding: 3%;
+    background-color: #E9F1F7;
+    border-radius: 15px;
+  }
+  .loginForm table {
+    padding: 20%;
+  }
+  .loginForm tbody {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0vh;
+    row-gap: 30px;
+  }
+  .loginForm td > label {
+    width: 8vw;
+  }
+  .loginForm .loginButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loginForm [type=submit] {
+    width: 10vw;
+    background-color: #50C878;
+    color: white;
+  }
   .footer {
     padding-top: 5vh;
     display: flex;
