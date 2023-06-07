@@ -13,7 +13,8 @@ if (!empty($_POST)) {
 
     if ((gettype($loginUser) == "object") && (get_class($loginUser) == "User")) {
         //Check the password
-        if ($loginUser->getPassword() === $_POST['password']) {
+        if ($loginUser->verifyPassword($_POST['password'])) {
+        // if ($loginUser->getPassword() === $_POST['password']) {
             //Start the session
             session_start();
             //Set the user to logged in

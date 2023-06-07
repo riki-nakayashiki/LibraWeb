@@ -1,4 +1,7 @@
 <?php
+require_once('./inc/Utilities/PDOService.class.php');
+require_once('./inc/config.inc.php');
+
 
 class UserDAO
 {

@@ -42,12 +42,17 @@ class Page
 
             //Check if the user is admin.
             if ($user->getUserType() === 'Admin') {
-                $adminMenu = '<li><a href="#">Admin page</a></li>';
+                $adminMenu = '<li><a href="newUser.php">Admin page</a></li>';
             }
 
         } else {
             $loginUser = '';
-            $loginButton = '<a href="login.php" class="bg-info text-white">Login</a>';
+            $loginButton = '
+            <div>
+            <a href="login.php" class="bg-info text-white banner-button">Login</a>
+            <a href="newUser.php" class="bg-info text-white banner-button">Sign Up</a>
+            </div>
+            ';
         }
 
         $htmlBanner = '
@@ -61,7 +66,7 @@ class Page
                                         </h1>
                                     </figcaption>
                                 </figure>
-                                <h2>' . $loginUser . '</h2>
+                                <h4>' . $loginUser . '</h4>
                                 ' . $loginButton . '
                             </section>
                         </header>
@@ -656,5 +661,64 @@ class Page
     public static function logOut()
     {
         return '<h1 class="text-center">You are Logged Out!</h1>';
+    }
+
+    public static function addNewUser()
+    {
+        $userType = '
+        <input type="text" name="userType" class="form-control" id="userType" value="User" hidden>
+        ';
+
+        if (isset($_SESSION['username'])) {
+            $user = $_SESSION['username'];
+            //Check if the user is admin.
+            if ($user->getUserType() === 'Admin') {
+                $userType = '
+                <div class="col-md-4">
+                    <label for="userType" class="form-label">User Type</label>
+                    <select name="userType" id="userType" class="form-select">
+                    <option selected>Choose...</option>
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                    </select>
+                </div>
+                ';
+            }
+
+        }
+        $userForm = '
+        <form id="userForm" class="row g-3 col-6" method="POST" action="' . $_SERVER["PHP_SELF"] . '">
+            <div class="col-md-5">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First Name">
+            </div>
+            <div class="col-md-5">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last Name">
+            </div>
+            <div class="col-md-5">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Adress">
+            </div>
+            <div class="col-md-5">
+                <label for="age" class="form-label">Age</label>
+                <input type="text" class="form-control" id="age" name="age" placeholder="Age">
+            </div>
+            <div class="col-md-5">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            </div>
+            <div class="col-md-5">
+                <label for="inputPassword4" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="*******">
+            </div>'
+            . $userType .
+            '
+            <div class="col-12 submit-button">
+                <input type="submit" value="Create New User" class="btn">
+            </div>
+        </form>
+        ';
+        return $userForm;
     }
 }
