@@ -752,6 +752,9 @@ body main {
     background-color: #50C878;
     color: whitesmoke;
   }
+  .festival {
+    text-align: center;
+  }
   .festival .event-title {
     font-size: 35px;
   }
@@ -761,6 +764,9 @@ body main {
   .festival .categories {
     font-size: 22px;
     font-weight: 700;
+  }
+  .festival .categories span {
+    font-size: 30px;
   }
   .festival .session ul {
     padding: 2%;

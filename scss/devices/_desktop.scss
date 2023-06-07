@@ -145,6 +145,7 @@
     }
   }
   .festival {
+    text-align: center;
     .event-title {
       font-size: 35px;
     }
@@ -156,6 +157,11 @@
     .categories {
       font-size: 22px;
       font-weight: 700;
+      // justify-content: center;
+      // width: 70%;
+      span {
+        font-size: 30px;
+      }
     }
 
     .session {
