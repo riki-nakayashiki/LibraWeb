@@ -3,7 +3,6 @@
   .infor {
     width: 100%;
     height: 60vh;
-    margin-top: 8%;
     .slides {
       background-color: gainsboro;
       flex-direction: row;
@@ -121,6 +120,11 @@
       width: 50%;
       .room-info {
         width: 90%;
+      }
+    }
+    tbody {
+      tr:hover {
+        color: $mainColor;
       }
     }
     .reservation-form {

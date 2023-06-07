@@ -293,31 +293,6 @@ body {
     }
   }
 
-  // .room-info {
-  //   margin-bottom: 20px;
-  //   padding: 10px;
-  //   background-color: #f2f2f2;
-  //   border: 1px solid #ccc;
-  //   h3 {
-  //     font-size: 18px;
-  //     margin-bottom: 5px;
-  //   }
-  //   p {
-  //     font-size: 14px;
-  //     margin-bottom: 3px;
-  //   }
-  //   strong {
-  //     font-size: 16px;
-  //     color: #333;
-  //   }
-  // }
-  // .room-info.available {
-  //   background-color: #50c878;
-  // }
-
-  // .room-info.unavailable {
-  //   background-color: #ffb3b3;
-  // }
   .reservation-form {
     @include MakeColumn;
     width: 80%;

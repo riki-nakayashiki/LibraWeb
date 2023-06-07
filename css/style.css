@@ -505,7 +505,6 @@ body main {
   .infor {
     width: 100%;
     height: 60vh;
-    margin-top: 8%;
   }
   .infor .slides {
     background-color: gainsboro;
@@ -614,6 +613,9 @@ body main {
   }
   .room-page .room-table .room-info {
     width: 90%;
+  }
+  .room-page tbody tr:hover {
+    color: #1D84B5;
   }
   .room-page .reservation-form {
     width: 40%;

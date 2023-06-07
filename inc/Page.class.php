@@ -127,7 +127,7 @@ class Page
             array(
                 'src' => "./img/reading.jpg",
                 'caption' => "10:00 - 17:00",
-                'title' => "Public reading Rooms"
+                'title' => "Reading Rooms"
             )
         );
 
@@ -153,6 +153,7 @@ class Page
 
         $row .= '
             </aside>
+            <a href="room.php">Reservation</a>
         </section>';
 
         return $row;
