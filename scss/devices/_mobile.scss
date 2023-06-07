@@ -241,7 +241,7 @@ body {
         }
       }
       a {
-        // display: inline-block;
+        // display: inline-block
         background-color: #007bff;
         color: #fff;
         text-decoration: none;
@@ -261,7 +261,8 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    // padding: 5%;
+    row-gap: 2%;
+    column-gap: 2%;
     row-gap: 2vh;
     .room-table {
       @include MakeColumn;
@@ -319,10 +320,12 @@ body {
   // }
   .reservation-form {
     @include MakeColumn;
-    width: 90%;
+    width: 80%;
     align-items: center;
     padding: 20px;
     row-gap: 3vh;
+    border: 3px solid gainsboro;
+    border-radius: 10%;
 
     label {
       display: flex;
@@ -330,12 +333,13 @@ body {
 
     select,
     input {
-      width: 100%;
+      width: 90%;
       padding: 10px;
       font-size: 16px;
     }
 
     input[type="submit"] {
+      width: 50%;
       border: 1px solid transparent;
       background-color: #e9f1f7;
     }

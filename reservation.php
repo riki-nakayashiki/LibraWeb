@@ -18,8 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get the form data
     $roomId = intval($_POST['roomId']);
     $roomName = $_POST['roomName'];
+    $user = $_SESSION['username'];
     // just give the userId
-    $userId = 1001;
+    $userId = $user->getId();
     $date = $_POST['date'];
     $startTime = $_POST['start-time'];
     $endTime = $_POST['end-time'];
