@@ -59,11 +59,18 @@ if (isset($_GET['purpose'])) {
     $splitPurpose = explode(' ', $purpose);
     $currentDate = date('Y-m-d');
     echo Page::getCurrentDate();
-    echo Page::roomTable($splitPurpose[0]);
-    echo Page::reservationRow($splitPurpose[0]);
-};
-
+?>
+    <section class="room-page">
+        <aisde class = "room-table">
+            <?php echo Page::roomTable($splitPurpose[0]); ?>
+        </aisde>
+        <?php echo Page::reservationRow($splitPurpose[0]); ?>
+    </section>
+<?php
 echo Page::pageFooter();
 echo Page::pageEnd();
+}
+?>
+
 
 

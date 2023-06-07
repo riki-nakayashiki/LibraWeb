@@ -257,25 +257,39 @@ body {
     }
   }
 
-  .room-info {
+  .room-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    font-size: 14px;
-    border-collapse: collapse;
-    text-align: center;
-    margin-top: 3%;
+    // padding: 5%;
+    row-gap: 2vh;
+    .room-table {
+      @include MakeColumn;
+      @include MakeCenter;
+      width: 100%;
+      .room-info {
+        width: 90%;
+        padding: 2%;
+        font-size: 14px;
+        box-sizing: content-box;
+        border-collapse: collapse;
+        text-align: center;
 
-    th {
-      background-color: #e9f1f7;
-      padding: 8px;
-      font-weight: bold;
-      text-align: center;
-      border: 1px solid gray;
-      // #1d84b5;
-    }
+        th {
+          background-color: #e9f1f7;
+          font-weight: bold;
+          text-align: center;
+          box-sizing: content-box;
+          padding: 8px;
+          border: 1px solid gray;
+        }
 
-    td {
-      padding: 8px;
-      border-bottom: 1px solid black;
+        td {
+          padding: 4px;
+          border-bottom: 1px solid black;
+        }
+      }
     }
   }
 
@@ -305,8 +319,8 @@ body {
   //   background-color: #ffb3b3;
   // }
   .reservation-form {
-    display: flex;
-    flex-direction: column;
+    @include MakeColumn;
+    width: 90%;
     align-items: center;
     padding: 20px;
     row-gap: 3vh;
@@ -323,6 +337,7 @@ body {
     }
 
     input[type="submit"] {
+      border: 1px solid transparent;
       background-color: #e9f1f7;
     }
   }

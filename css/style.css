@@ -240,27 +240,47 @@ body main {
   .room .slides figure figcaption a:hover {
     background-color: #0056b3;
   }
-  .room-info {
+  .room-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    row-gap: 2vh;
+  }
+  .room-page .room-table {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .room-page .room-table .room-info {
+    width: 90%;
+    padding: 2%;
     font-size: 14px;
+    box-sizing: content-box;
     border-collapse: collapse;
     text-align: center;
-    margin-top: 3%;
   }
-  .room-info th {
+  .room-page .room-table .room-info th {
     background-color: #e9f1f7;
-    padding: 8px;
     font-weight: bold;
     text-align: center;
+    box-sizing: content-box;
+    padding: 8px;
     border: 1px solid gray;
   }
-  .room-info td {
-    padding: 8px;
+  .room-page .room-table .room-info td {
+    padding: 4px;
     border-bottom: 1px solid black;
   }
   .reservation-form {
     display: flex;
     flex-direction: column;
+    row-gap: 0vh;
+    width: 90%;
     align-items: center;
     padding: 20px;
     row-gap: 3vh;
@@ -275,6 +295,7 @@ body main {
     font-size: 16px;
   }
   .reservation-form input[type=submit] {
+    border: 1px solid transparent;
     background-color: #e9f1f7;
   }
   .message {
@@ -574,6 +595,21 @@ body main {
   .message .current a:hover {
     background-color: gainsboro;
     color: #36ac5d;
+  }
+  .room-page {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .room-page .room-table {
+    row-gap: 5vh;
+    padding-top: 2%;
+    width: 50%;
+  }
+  .room-page .room-table .room-info {
+    width: 90%;
+  }
+  .room-page .reservation-form {
+    width: 40%;
   }
   .footer h4 {
     width: 30%;
