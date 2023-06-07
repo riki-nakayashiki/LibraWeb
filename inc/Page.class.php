@@ -70,7 +70,7 @@ class Page
                                 <li><a href="index.php">About</a></li>
                                 <li><a href="books.php">Books</a></li>
                                 <li><a href="room.php">Rooms</a></li>
-                                <li><a href="#">Contact / Reviews</a></li>
+                                <li><a href="events.php">Events</a></li>
                                 ' . $adminMenu . '
                             </ul>
                             <details class="d-md-none">
@@ -80,7 +80,7 @@ class Page
                                     <li><a href="index.php">About</a></li>
                                     <li><a href="books.php">Books</a></li>
                                     <li><a href="room.php">Rooms</a></li>
-                                    <li><a href="#">Contact/Reviews</a></li>
+                                    <li><a href="events.php">Events</a></li>
                                     ' . $adminMenu . '
                                 </ul>
                             </details>
@@ -154,6 +154,74 @@ class Page
         $row .= '
             </aside>
             <a href="room.php">Reservation</a>
+        </section>';
+
+        return $row;
+    }
+    public static function eventRow(): string
+    {
+        $images = array(
+            array(
+                'src' => "./img/festival.jpg",
+                'date' => "TUESDAY, JUNE 6, 2023",
+                'title' => "22ND ANNUAL TALKING STICK FESTIBAL 2023: SUMMER REVERB",
+                'from' => "Arts & Culture Presented by Woodword's Cultural Programs"
+            ),
+            array(
+                'src' => "./img/spring.jpg",
+                'date' => "TUESDAY, JUNE 6, 2023",
+                'title' => "INFO SESSTION FOR SPRING UNDERGRADUATE PRACTICUMS AND INTERNSHIPS",
+                'from' => "Arts & Culture,Dance,Exhibis Presented by School"
+            ),
+            array(
+                'src' => "./img/art.jpg",
+                'date' => "MONDAY, JUNE 5, 2023",
+                'title' => "MEDICINE WEAVINGS IN RED",
+                'from' => "Arts & Culture,Visual Art Presented by School for the Contemporary Arts"
+            ),
+            array(
+                'src' => "./img/totem.jpg",
+                'date' => "THURSDAY, JUNE 8, 2023",
+                'title' => "NATIONAL INDIGENOUS PEOPLE'S MONTH",
+                'from' => "Arts & Culture Presented by Equity. Diversity and inclusion"
+            ),
+            array(
+                'src' => "./img/democracy.jpg",
+                'date' => "TUESDAY, JUNE 6, 2023",
+                'title' => "PRATICPEDIA-CERI SUMMER SCHOOL ON RADICAL DEMOCRACY",
+                'from' => "Community Events Seminars Presented by Research initiative"
+            ),
+            array(
+                'src' => "./img/pride.jpg",
+                'date' => "MONDAY, JUNE 5, 2023",
+                'title' => "PRIDE MONTH",
+                'from' => "Arts & Culture Presented by Equity, Diversity and inclusion"
+            )
+        );
+
+        $row = '<section class = "event">
+                    <h2>ALL EVENTS</h2>
+                    <article class = "gallery">    
+                ';
+
+        foreach ($images as $image) {
+            $row .= '
+                <figure>
+                    <img src="' . $image['src'] . '">
+                    <figcaption>
+                        <h3>' . $image['title'] . '</h3>
+                        <h5>' . $image['date'] . '</h5>
+                        <aside>
+                            <p>' . $image['from'] . '</p>
+                            <a href="#">FREE</a>
+                        </aside>
+                    </figcaption>
+                </figure>
+            ';
+        }
+
+        $row .= '
+            </article>
         </section>';
 
         return $row;
