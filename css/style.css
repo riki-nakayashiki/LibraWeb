@@ -618,6 +618,10 @@ body main {
   .room-page .reservation-form {
     width: 40%;
   }
+  .reservation-form input[type=submit]:hover {
+    background-color: #50C878;
+    color: whitesmoke;
+  }
   .footer h4 {
     width: 30%;
   }

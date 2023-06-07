@@ -127,6 +127,12 @@
       width: 40%;
     }
   }
+  .reservation-form {
+    input[type="submit"]:hover {
+      background-color: $secondaryColor;
+      color: whitesmoke;
+    }
+  }
 
   .footer {
     h4 {
