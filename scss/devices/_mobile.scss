@@ -36,47 +36,47 @@ body {
     img {
       width: 100px;
     }
+  }
 
-    //Login Form
-    .loginForm {
+  //Login Form
+  .loginForm {
+    @include MakeCenter;
+    margin: 1%;
+    padding: 3%;
+    background-color: $thirdColor;
+    border-radius: 15px;
+    // border: 1px solid $mainColor;
+
+    table {
+      padding: 20%;
+    }
+
+    tbody {
+      @include MakeColumn;
+      row-gap: 30px;
+    }
+
+    td > label {
+      width: 8vw;
+    }
+
+    .loginButton {
       @include MakeCenter;
-      margin: 1%;
-      padding: 3%;
-      background-color: $thirdColor;
-      border-radius: 15px;
-      // border: 1px solid $mainColor;
-
-      table {
-        padding: 20%;
-      }
-
-      tbody {
-        @include MakeColumn;
-        row-gap: 30px;
-      }
-
-      td > label {
-        width: 8vw;
-      }
-
-      .loginButton {
-        @include MakeCenter;
-      }
-
-      [type="submit"] {
-        width: 10vw;
-        background-color: $secondaryColor;
-        color: white;
-      }
     }
 
-    a {
-      font-size: 24px;
-      height: 40px;
-      width: 100px;
-      text-decoration: none;
-      text-align: center;
+    [type="submit"] {
+      width: 10vw;
+      background-color: $secondaryColor;
+      color: white;
     }
+  }
+
+  a {
+    font-size: 24px;
+    height: 40px;
+    width: 100px;
+    text-decoration: none;
+    text-align: center;
   }
 
   .nav-main {
