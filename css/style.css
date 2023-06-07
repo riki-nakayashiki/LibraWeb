@@ -228,8 +228,7 @@ body main {
   .room .slides figure figcaption h6 {
     font-size: 16px;
   }
-  .room .slides figure figcaption a {
-    display: inline-block;
+  .room .slides a {
     padding: 8px 16px;
     background-color: #007bff;
     color: #fff;
@@ -237,7 +236,7 @@ body main {
     border-radius: 4px;
     transition: background-color 0.3s ease;
   }
-  .room .slides figure figcaption a:hover {
+  .room .slides a:hover {
     background-color: #0056b3;
   }
   .room-page {
