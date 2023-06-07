@@ -497,7 +497,7 @@ class Page
         );
 
         $row = '<section class="room">
-                    <h2>rooms</h2>
+                    <h2>Room</h2>
                     <aside class="slides">    
                 ';
 
