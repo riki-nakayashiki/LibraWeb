@@ -36,7 +36,7 @@ class Page
         session_start();
         if (isset($_SESSION['username'])) {
             $user = $_SESSION['username'];
-            $loginUser = 'Wellcome : ' . $user->getFirstName() . ' ' . $user->getLastName();
+            $loginUser = 'Welcome! ' . $user->getFirstName().'!';
 
             $loginButton = '<a href="logout.php" class="bg-info text-white">Logout</a>';
 

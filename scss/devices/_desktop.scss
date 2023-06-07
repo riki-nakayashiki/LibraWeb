@@ -1,5 +1,12 @@
 @media (min-width: 1000px) {
   // slide show of information row
+
+  .header-main {
+    h2 {
+      padding: 2%;
+      margin-left: 50%;
+    }
+  }
   .infor {
     width: 100%;
     height: 60vh;
