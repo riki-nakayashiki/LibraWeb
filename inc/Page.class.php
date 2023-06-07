@@ -165,37 +165,44 @@ class Page
                 'src' => "./img/festival.jpg",
                 'date' => "TUESDAY, JUNE 6, 2023",
                 'title' => "22ND ANNUAL TALKING STICK FESTIBAL 2023: SUMMER REVERB",
-                'from' => "Arts & Culture Presented by Woodword's Cultural Programs"
+                'from' => "Arts & Culture Presented by Woodword's Cultural Programs",
+                'to'=> "festival.php"
             ),
             array(
                 'src' => "./img/spring.jpg",
                 'date' => "TUESDAY, JUNE 6, 2023",
                 'title' => "INFO SESSTION FOR SPRING UNDERGRADUATE PRACTICUMS AND INTERNSHIPS",
-                'from' => "Arts & Culture,Dance,Exhibis Presented by School"
+                'from' => "Arts & Culture,Dance,Exhibis Presented by School",
+                'to'=> "spring.php"
             ),
             array(
                 'src' => "./img/art.jpg",
                 'date' => "MONDAY, JUNE 5, 2023",
                 'title' => "MEDICINE WEAVINGS IN RED",
-                'from' => "Arts & Culture,Visual Art Presented by School for the Contemporary Arts"
+                'from' => "Arts & Culture,Visual Art Presented by School for the Contemporary Arts",
+                'to'=> "art.php"
+
             ),
             array(
                 'src' => "./img/totem.jpg",
                 'date' => "THURSDAY, JUNE 8, 2023",
                 'title' => "NATIONAL INDIGENOUS PEOPLE'S MONTH",
-                'from' => "Arts & Culture Presented by Equity. Diversity and inclusion"
+                'from' => "Arts & Culture Presented by Equity. Diversity and inclusion",
+                'to'=> "totem.php"
             ),
             array(
                 'src' => "./img/democracy.jpg",
                 'date' => "TUESDAY, JUNE 6, 2023",
                 'title' => "PRATICPEDIA-CERI SUMMER SCHOOL ON RADICAL DEMOCRACY",
-                'from' => "Community Events Seminars Presented by Research initiative"
+                'from' => "Community Events Seminars Presented by Research initiative",
+                'to'=> "democracy.php"
             ),
             array(
                 'src' => "./img/pride.jpg",
                 'date' => "MONDAY, JUNE 5, 2023",
                 'title' => "PRIDE MONTH",
-                'from' => "Arts & Culture Presented by Equity, Diversity and inclusion"
+                'from' => "Arts & Culture Presented by Equity, Diversity and inclusion",
+                'to'=> "pride.php"
             )
         );
 
@@ -213,7 +220,7 @@ class Page
                         <h5>' . $image['date'] . '</h5>
                         <aside>
                             <p>' . $image['from'] . '</p>
-                            <a href="#">FREE</a>
+                            <a href="'.$image['to'].'">FREE</a>
                         </aside>
                     </figcaption>
                 </figure>
@@ -361,7 +368,36 @@ class Page
         return $htmlPageEnd;
     }
 
-
+    public static function EventsPage($image): string {
+        $htmlEvents = '
+            <section class = "festival">
+                <h1 class="event-title">'.$image['title'].'</h1>
+                <div class = "date">
+                    '.$image['date'].'
+                </div>
+                <div class="categories"><span>'.$image['from'].'</span></div>
+                <div class = "session">
+                <ul>
+                    <li>Friday, May 26, 1:30 PM – 2:30 PM
+                    </li>
+                    <li>Monday, June 19, 2:30 PM – 3:30 PM
+                    </li>
+                    <li>Tuesday, July 18, 6:00 PM – 7:00 PM
+                    </li>
+                    <li>Thursday, July 27, 2:30 PM – 3:30 PM
+                    </li>
+                </ul>
+                </div>
+                <figure>
+                    <img src="'.$image['src'].'" alt="'.$image['src'].'">
+                    <figcaption>
+                        <p>"'.$image['figcaption'].'"</p>
+                    </figcaption>
+                </figure>
+            </section>
+        ';
+        return $htmlEvents;
+    }
     public static function roomTable($roomList)
     {
         $lowercasePurpose = strtolower($roomList);

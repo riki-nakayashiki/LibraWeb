@@ -361,6 +361,65 @@ body main {
     font-size: 16px;
     margin: 0 0 10px;
   }
+  .festival {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0vh;
+    padding: 2%;
+    row-gap: 2vh;
+  }
+  .festival .event-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D84B5;
+  }
+  .festival .date {
+    font-size: 16px;
+    color: #666;
+    font-weight: 700;
+  }
+  .festival .categories {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0vh;
+    width: 100%;
+  }
+  .festival .categories span {
+    display: inline-block;
+    background-color: #1D84B5;
+    padding: 4px 8px;
+    color: #fff;
+  }
+  .festival .session {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0vh;
+    font-weight: 700;
+  }
+  .festival .session ul {
+    list-style: none;
+    padding: 0;
+    border: 1px soild gainsboro;
+  }
+  .festival .session ul li {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .festival figure {
+    display: flex;
+    flex-direction: column;
+  }
+  .festival figure img {
+    width: 100%;
+  }
+  .festival figure figcaption {
+    display: flex;
+    background-color: gainsboro;
+  }
+  .festival figure figcaption p {
+    padding: 5%;
+    line-height: 2;
+  }
   .event {
     margin-bottom: 10px;
     padding: 2%;
@@ -692,6 +751,39 @@ body main {
   .reservation-form input[type=submit]:hover {
     background-color: #50C878;
     color: whitesmoke;
+  }
+  .festival .event-title {
+    font-size: 35px;
+  }
+  .festival .date {
+    font-size: 20px;
+  }
+  .festival .categories {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .festival .session ul {
+    padding: 2%;
+  }
+  .festival .session ul li {
+    font-size: 20px;
+  }
+  .festival figure {
+    flex-direction: row;
+    -moz-column-gap: 1vh;
+         column-gap: 1vh;
+  }
+  .festival figure img {
+    border: 3px solid #50C878;
+    border-radius: 10px;
+    width: 50%;
+  }
+  .festival figure figcaption {
+    border-radius: 10px;
+    align-items: center;
+  }
+  .festival figure figcaption p {
+    font-size: 20px;
   }
   .event .gallery {
     grid-template-columns: repeat(3, 1fr);

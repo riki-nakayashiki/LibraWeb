@@ -144,6 +144,47 @@
       color: whitesmoke;
     }
   }
+  .festival {
+    .event-title {
+      font-size: 35px;
+    }
+
+    .date {
+      font-size: 20px;
+    }
+
+    .categories {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .session {
+      ul {
+        padding: 2%;
+        li {
+          font-size: 20px;
+          // padding: 2%;
+        }
+      }
+    }
+
+    figure {
+      flex-direction: row;
+      column-gap: 1vh;
+      img {
+        border: 3px solid $secondaryColor;
+        border-radius: 10px;
+        width: 50%;
+      }
+      figcaption {
+        border-radius: 10px;
+        align-items: center;
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+  }
   .event {
     .gallery {
       // display: grid;
