@@ -1,5 +1,7 @@
 <?php
 
+require_once("inc/Entity/User.class.php");
+
 class Page
 {
     /**
@@ -29,11 +31,23 @@ class Page
      */
     public static function pageBanner(): string
     {
-        // Temporary code
-        $userType = 1;
         $adminMenu = "";
-        if ($userType == 1) {
-            $adminMenu = '<li><a href="#">Admin page</a></li>';
+
+        session_start();
+        if (isset($_SESSION['username'])) {
+            $user = $_SESSION['username'];
+            $loginUser = 'USER NAME : ' . $user->getFirstName() . ' ' . $user->getLastName();
+
+            $loginButton = '<a href="logout.php" class="bg-info text-white">Logout</a>';
+
+            //Check if the user is admin.
+            if ($user->getUserType() === 'Admin') {
+                $adminMenu = '<li><a href="#">Admin page</a></li>';
+            }
+
+        } else {
+            $loginUser = '';
+            $loginButton = '<a href="login.php" class="bg-info text-white">Login</a>';
         }
 
         $htmlBanner = '
@@ -47,14 +61,15 @@ class Page
                                         </h1>
                                     </figcaption>
                                 </figure>
-                                <a href="#" class="bg-info text-white">Login</a>
+                                <h2>' . $loginUser . '</h2>
+                                ' . $loginButton . '
                             </section>
                         </header>
                         <nav class="nav-main">
                             <ul class="d-none d-md-flex justify-content-between">
                                 <li><a href="index.php">About</a></li>
-                                <li><a href="books.php">Books</a></li>
-                                <li><a href="room.php">Rooms</a></li>
+                                <li><a href="#">Books</a></li>
+                                <li><a href="#">Rooms</a></li>
                                 <li><a href="#">Contact / Reviews</a></li>
                                 ' . $adminMenu . '
                             </ul>
@@ -62,9 +77,9 @@ class Page
                                 <summary class="fa-solid fa-bars d-flex justify-content-end">
                                 </summary>
                                 <ul>
-                                    <li><a href="index.php">About</a></li>
-                                    <li><a href="books.php">Books</a></li>
-                                    <li><a href="room.php">Rooms</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Books</a></li>
+                                    <li><a href="#">Rooms</a></li>
                                     <li><a href="#">Contact/Reviews</a></li>
                                     ' . $adminMenu . '
                                 </ul>
@@ -87,11 +102,12 @@ class Page
         return $mainContent;
     }
 
-     /**
+    /**
      *@return string 
      */
 
-     public static function informationRow(): string{
+    public static function informationRow(): string
+    {
         $images = array(
             array(
                 'src' => "./img/labtop.jpg",
@@ -123,12 +139,12 @@ class Page
         foreach ($images as $image) {
             $row .= '
                 <figure>
-                    <img src="'. $image['src'] .'">
+                    <img src="' . $image['src'] . '">
                     <figcaption>
                         <i class="fa-solid fa-clock"></i>
                         
-                            <h5>'. $image['title'] .'</h5>
-                            <h6>'. $image['caption'] .'</h6>
+                            <h5>' . $image['title'] . '</h5>
+                            <h6>' . $image['caption'] . '</h6>
                     
                     </figcaption>
                 </figure>
@@ -140,12 +156,13 @@ class Page
         </section>';
 
         return $row;
-     }
+    }
 
     /**
      * @return string
      */
-    public static function newsContent() : string {
+    public static function newsContent(): string
+    {
         $news = '
         <section class="news-highlights">
             <article>
@@ -281,7 +298,7 @@ class Page
         $lowercasePurpose = strtolower($roomList);
         // var_dump($lowercasePurpose);
         $rooms = RoomDAO::getRoomByPurpose($lowercasePurpose);
-        
+
         // get the list of rooms
         $roomNames = array();
         foreach ($rooms as $room) {
@@ -290,13 +307,13 @@ class Page
                 $roomNames[] = $roomName;
             }
         }
-        
+
         // build table by using name of Room 
         $roomTables = '';
         foreach ($roomNames as $roomName) {
             $roomTables .= self::buildRoomTable($roomName, $rooms);
         }
-        
+
         return $roomTables;
     }
 
@@ -315,41 +332,42 @@ class Page
                     </tr>
                 </thead>
                 <tbody>';
-                
+
         foreach ($rooms as $room) {
             $roomStatus = $room->getStatus();
-            if(!$roomStatus) {
+            if (!$roomStatus) {
                 if ($room->getRoomName() === $roomName) {
                     $roomTable .= self::buildRoomRow($room);
                 }
 
             }
         }
-        
+
         $roomTable .= '</tbody>
             </table>';
-        
+
         return $roomTable;
     }
 
     private static function buildRoomRow($newRoom)
-    {   
+    {
         $statusColor = $newRoom->getStatus() ? 'red' : 'gainsboro';
         $row = '
-            <tr style="background-color: '.$statusColor.';">
-                <td>'.$newRoom->getId().'</td>
-                <td>'.$newRoom->getRoomName().'</td>
-                <td>'.$newRoom->getCapacity().'</td>
-                <td>'.$newRoom->getLocation().'</td>
-                <td>'.$newRoom->getStartTime().'</td>
-                <td>'.$newRoom->getEndTime().'</td>
+            <tr style="background-color: ' . $statusColor . ';">
+                <td>' . $newRoom->getId() . '</td>
+                <td>' . $newRoom->getRoomName() . '</td>
+                <td>' . $newRoom->getCapacity() . '</td>
+                <td>' . $newRoom->getLocation() . '</td>
+                <td>' . $newRoom->getStartTime() . '</td>
+                <td>' . $newRoom->getEndTime() . '</td>
             </tr>';
         return $row;
     }
     /**
      * @return string
      */
-    public static function pageTable($bookList) : string {
+    public static function pageTable($bookList): string
+    {
         $table = '
             <table class="table caption-top">
             <thead>
@@ -363,32 +381,34 @@ class Page
             </tr>
             </thead>
             <tbody>';
-                foreach($bookList as $book) {
-                    $table .= self::rows($book);
-                }
-            $table .= '</tbody>
+        foreach ($bookList as $book) {
+            $table .= self::rows($book);
+        }
+        $table .= '</tbody>
             </table>
         ';
 
         return $table;
     }
 
-    public static function rows($books) {
+    public static function rows($books)
+    {
         $row = '
             <tr>
-                <td>'.$books->getId().'</td>
-                <td>'.$books->getIsbn().'</td>
-                <td>'.$books->getBookTitle().'</td>
-                <td>'.$books->getBookAuthor().'</td>
-                <td>'.$books->getPublication().'</td>
-                <td>'.$books->getPublisher().'</td>
+                <td>' . $books->getId() . '</td>
+                <td>' . $books->getIsbn() . '</td>
+                <td>' . $books->getBookTitle() . '</td>
+                <td>' . $books->getBookAuthor() . '</td>
+                <td>' . $books->getPublication() . '</td>
+                <td>' . $books->getPublisher() . '</td>
             </tr>
         ';
 
         return $row;
     }
 
-    public static function roomRow(): string {
+    public static function roomRow(): string
+    {
         $images = array(
             array(
                 'src' => "./img/pc.jpg",
@@ -415,11 +435,11 @@ class Page
         foreach ($images as $image) {
             $row .= '
                 <figure>
-                    <img src="'. $image['src'] .'">
+                    <img src="' . $image['src'] . '">
                     <figcaption>
-                        <h5>'. $image['title'] .'</h5>
-                        <h6>'. $image['caption'] .'</h6>
-                        <a href="reservation.php?purpose='. $image['title'] .'">Reserve</a>
+                        <h5>' . $image['title'] . '</h5>
+                        <h6>' . $image['caption'] . '</h6>
+                        <a href="reservation.php?purpose=' . $image['title'] . '">Reserve</a>
                     </figcaption>
                 </figure>
             ';
@@ -434,7 +454,8 @@ class Page
 
 
     // page of reservation with room information
-    public static function createReservationPage($purpose) {
+    public static function createReservationPage($purpose)
+    {
         // make it lowercase 
         $lowercasePurpose = strtolower($purpose);
         // var_dump($lowercasePurpose);
@@ -458,7 +479,8 @@ class Page
 
 
     //success message
-    public static function getSuccessMessage(){
+    public static function getSuccessMessage()
+    {
         $htmlSuccess = '
         <article class="message">
             <aside class = "current">
@@ -471,7 +493,8 @@ class Page
         ';
         return $htmlSuccess;
     }
-    public static function getCurrentDate(){
+    public static function getCurrentDate()
+    {
         $currentDate = date('Y-m-d', strtotime('-1 day'));
         $htmlCurrentDate = '
         <article class="message">
@@ -484,7 +507,8 @@ class Page
         return $htmlCurrentDate;
     }
     //success message
-    public static function getFailMessage(){
+    public static function getFailMessage()
+    {
         $htmlSuccess = '
         <article class="message">
             <aside class = "current">
@@ -498,7 +522,8 @@ class Page
         return $htmlSuccess;
     }
     // reservation page 
-    public static function reservationRow($purpose): string {
+    public static function reservationRow($purpose): string
+    {
         // make it lowercase 
         $lowercasePurpose = strtolower($purpose);
         // var_dump($lowercasePurpose);
@@ -506,7 +531,7 @@ class Page
 
 
         $htmlRoom = '
-        <form class="reservation-form" action="reservation.php" method="post" action="'. $_SERVER["PHP_SELF"] .'">
+        <form class="reservation-form" action="reservation.php" method="post" action="' . $_SERVER["PHP_SELF"] . '">
             <label for="roomId">Room ID:</label>
             <select name="roomId" id="roomId">';
 
@@ -514,7 +539,7 @@ class Page
         foreach ($rooms as $room) {
             $roomId = $room->getId();
             $roomStatus = $room->getStatus();
-            if(!$roomStatus) {
+            if (!$roomStatus) {
                 $htmlRoom .= '<option value="' . $roomId . '">' . $roomId . '</option>';
             }
         }
@@ -582,10 +607,11 @@ class Page
 
 
 
-    public static function filter(){
+    public static function filter()
+    {
         $filtering = '
         <nav class="navbar bg-body-tertiary">
-          <form class="d-flex" role="search" method="POST" action="'.$_SERVER["PHP_SELF"].'">
+          <form class="d-flex" role="search" method="POST" action="' . $_SERVER["PHP_SELF"] . '">
             <input class="form-control me-2" type="search" name="search" placeholder="Search a book" aria-label="Search">
             <input class="btn btn-outline-success" type="submit" value="Search">
           </form>
@@ -594,5 +620,41 @@ class Page
 
         return $filtering;
     }
-    
+
+    public static function loginForm()
+    {
+        $loginForm = '
+        <form method="POST" action="' . $_SERVER["PHP_SELF"] . '" class="loginForm">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><label for="loginEmail">Email: </label></td>
+                        <td><input type="email" placeholder="Enter Email" name="email" id="loginEmail"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="loginPassword">Password:</label></td>
+                        <td><input type="password" name="password" id="loginPassword" placeholder="Password"></td>
+                    </tr>
+                    <tr class="loginButton">
+                        <td><input type="submit" class="btn" value="Login"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        ';
+        return $loginForm;
+    }
+
+    public static function loginFailed()
+    {
+        return '
+        <div class="alert alert-danger" role="alert">
+        Wrong Email or Password!
+        </div>
+        ';
+    }
+    public static function logOut()
+    {
+        return '<h1 class="text-center">You are Logged Out!</h1>';
+    }
 }
