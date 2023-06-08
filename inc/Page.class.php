@@ -36,7 +36,7 @@ class Page
         session_start();
         if (isset($_SESSION['username'])) {
             $user = $_SESSION['username'];
-            $loginUser = 'USER NAME : ' . $user->getFirstName() . ' ' . $user->getLastName();
+            $loginUser = 'Welcome! ' . $user->getFirstName().'!';
 
             $loginButton = '<a href="logout.php" class="bg-info text-white">Logout</a>';
 
@@ -75,7 +75,7 @@ class Page
                                 <li><a href="index.php">About</a></li>
                                 <li><a href="books.php">Books</a></li>
                                 <li><a href="room.php">Rooms</a></li>
-                                <li><a href="#">Contact / Reviews</a></li>
+                                <li><a href="events.php">Events</a></li>
                                 ' . $adminMenu . '
                             </ul>
                             <details class="d-md-none">
@@ -85,7 +85,7 @@ class Page
                                     <li><a href="index.php">About</a></li>
                                     <li><a href="books.php">Books</a></li>
                                     <li><a href="room.php">Rooms</a></li>
-                                    <li><a href="#">Contact/Reviews</a></li>
+                                    <li><a href="events.php">Events</a></li>
                                     ' . $adminMenu . '
                                 </ul>
                             </details>
@@ -132,7 +132,7 @@ class Page
             array(
                 'src' => "./img/reading.jpg",
                 'caption' => "10:00 - 17:00",
-                'title' => "Public reading Rooms"
+                'title' => "Reading Rooms"
             )
         );
 
@@ -158,6 +158,82 @@ class Page
 
         $row .= '
             </aside>
+            <a href="room.php">Reservation</a>
+        </section>';
+
+        return $row;
+    }
+    public static function eventRow(): string
+    {
+        $images = array(
+            array(
+                'src' => "./img/festival.jpg",
+                'date' => "TUESDAY, JUNE 6, 2023",
+                'title' => "22ND ANNUAL TALKING STICK FESTIBAL 2023: SUMMER REVERB",
+                'from' => "Arts & Culture Presented by Woodword's Cultural Programs",
+                'to'=> "festival.php"
+            ),
+            array(
+                'src' => "./img/spring.jpg",
+                'date' => "TUESDAY, JUNE 6, 2023",
+                'title' => "INFO SESSTION FOR SPRING UNDERGRADUATE PRACTICUMS AND INTERNSHIPS",
+                'from' => "Arts & Culture,Dance,Exhibis Presented by School",
+                'to'=> "spring.php"
+            ),
+            array(
+                'src' => "./img/art.jpg",
+                'date' => "MONDAY, JUNE 5, 2023",
+                'title' => "MEDICINE WEAVINGS IN RED",
+                'from' => "Arts & Culture,Visual Art Presented by School for the Contemporary Arts",
+                'to'=> "art.php"
+
+            ),
+            array(
+                'src' => "./img/totem.jpg",
+                'date' => "THURSDAY, JUNE 8, 2023",
+                'title' => "NATIONAL INDIGENOUS PEOPLE'S MONTH",
+                'from' => "Arts & Culture Presented by Equity. Diversity and inclusion",
+                'to'=> "totem.php"
+            ),
+            array(
+                'src' => "./img/democracy.jpg",
+                'date' => "TUESDAY, JUNE 6, 2023",
+                'title' => "PRATICPEDIA-CERI SUMMER SCHOOL ON RADICAL DEMOCRACY",
+                'from' => "Community Events Seminars Presented by Research initiative",
+                'to'=> "democracy.php"
+            ),
+            array(
+                'src' => "./img/pride.jpg",
+                'date' => "MONDAY, JUNE 5, 2023",
+                'title' => "PRIDE MONTH",
+                'from' => "Arts & Culture Presented by Equity, Diversity and inclusion",
+                'to'=> "pride.php"
+            )
+        );
+
+        $row = '<section class = "event">
+                    <h2>ALL EVENTS</h2>
+                    <article class = "gallery">    
+                ';
+
+        foreach ($images as $image) {
+            $row .= '
+                <figure>
+                    <img src="' . $image['src'] . '">
+                    <figcaption>
+                        <h3>' . $image['title'] . '</h3>
+                        <h5>' . $image['date'] . '</h5>
+                        <aside>
+                            <p>' . $image['from'] . '</p>
+                            <a href="'.$image['to'].'">FREE</a>
+                        </aside>
+                    </figcaption>
+                </figure>
+            ';
+        }
+
+        $row .= '
+            </article>
         </section>';
 
         return $row;
@@ -297,7 +373,36 @@ class Page
         return $htmlPageEnd;
     }
 
-
+    public static function EventsPage($image): string {
+        $htmlEvents = '
+            <section class = "festival">
+                <h1 class="event-title">'.$image['title'].'</h1>
+                <div class = "date">
+                    '.$image['date'].'
+                </div>
+                <div class="categories"><span>'.$image['from'].'</span></div>
+                <div class = "session">
+                <ul>
+                    <li>Friday, May 26, 1:30 PM – 2:30 PM
+                    </li>
+                    <li>Monday, June 19, 2:30 PM – 3:30 PM
+                    </li>
+                    <li>Tuesday, July 18, 6:00 PM – 7:00 PM
+                    </li>
+                    <li>Thursday, July 27, 2:30 PM – 3:30 PM
+                    </li>
+                </ul>
+                </div>
+                <figure>
+                    <img src="'.$image['src'].'" alt="'.$image['src'].'">
+                    <figcaption>
+                        <p>"'.$image['figcaption'].'"</p>
+                    </figcaption>
+                </figure>
+            </section>
+        ';
+        return $htmlEvents;
+    }
     public static function roomTable($roomList)
     {
         $lowercasePurpose = strtolower($roomList);
@@ -433,7 +538,7 @@ class Page
         );
 
         $row = '<section class="room">
-                    <h2>rooms</h2>
+                    <h2>Room</h2>
                     <aside class="slides">    
                 ';
 
