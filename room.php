@@ -15,9 +15,8 @@ if (isset($_GET['purpose'])) {
     $purpose = $_GET['purpose'];
     $splitPurpose = explode(' ', $purpose);
     $redirectUrl = "reservation.php?purpose=" . urlencode($splitPurpose[0]);
-    echo "<script>window.location.href='$redirectUrl';</script>";
-    exit();
+    header("Location: $redirectUrl");
+    exit;
 }
 echo Page::pageFooter();
 echo Page::pageEnd();
-
