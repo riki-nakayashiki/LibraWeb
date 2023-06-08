@@ -29,6 +29,11 @@ body {
       background-color: rgba($color: white, $alpha: 0.7);
     }
 
+    .banner-button {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
     figure {
       width: 20vw;
     }
@@ -67,7 +72,7 @@ body {
       row-gap: 30px;
     }
 
-    td > label {
+    td>label {
       width: 8vw;
     }
 
@@ -77,6 +82,26 @@ body {
 
     [type="submit"] {
       width: 10vw;
+      background-color: $secondaryColor;
+      color: white;
+    }
+  }
+
+  //New user form
+  #userForm {
+    margin: 1%;
+    padding: 3%;
+    background-color: $thirdColor;
+    border-radius: 15px;
+    width: 100%;
+    @include MakeCenter;
+
+    .submit-button {
+      @include MakeCenter;
+    }
+
+    [type="submit"] {
+      width: 12vw;
       background-color: $secondaryColor;
       color: white;
     }
@@ -254,6 +279,7 @@ body {
           }
         }
       }
+
       a {
         // display: inline-block
         background-color: #007bff;
@@ -283,6 +309,7 @@ body {
       @include MakeColumn;
       @include MakeCenter;
       width: 100%;
+
       .room-info {
         width: 90%;
         padding: 2%;
@@ -346,11 +373,13 @@ body {
 
     .current {
       text-align: center;
+
       h1 {
         color: gainsboro;
         font-size: 24px;
         margin: 0 0 10px;
       }
+
       h4 {
         color: #74f39c;
         font-size: 18px;
@@ -362,6 +391,7 @@ body {
         font-size: 14px;
         margin: 0;
       }
+
       a {
         text-decoration: none;
         background-color: #36ac5d;
@@ -370,6 +400,7 @@ body {
         color: gainsboro;
         cursor: pointer;
       }
+
       p {
         color: #333333;
         font-size: 16px;
