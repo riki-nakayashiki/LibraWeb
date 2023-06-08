@@ -1,0 +1,253 @@
+@media (min-width: 1000px) {
+  // slide show of information row
+
+  .header-main {
+    h4 {
+      padding: 2%;
+      margin-left: 50%;
+    }
+  }
+  .infor {
+    width: 100%;
+    height: 60vh;
+    .slides {
+      background-color: gainsboro;
+      flex-direction: row;
+      column-gap: 5vh;
+      padding: 2%;
+
+      figure {
+        position: relative;
+        width: 20%;
+        height: 40vh;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 1;
+          transition: opacity 0.3s ease;
+        }
+
+        figcaption {
+          width: 100%;
+          height: 100%;
+          padding: 10%;
+          box-sizing: border-box;
+          opacity: 0;
+          animation: flip 0.4s;
+
+          h5,
+          h6,
+          i {
+            font-size: 20px;
+            transition: opacity 0.3s ease;
+          }
+        }
+
+        &:hover {
+          border: 2px solid rgb(0, 242, 255);
+          box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+          cursor: pointer;
+
+          img {
+            opacity: 0;
+          }
+
+          figcaption {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes flip {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(90deg);
+    }
+    100% {
+      transform: rotateY(180deg);
+    }
+  }
+  .news-highlights {
+    height: 100vh;
+
+    img {
+      height: 25vh;
+    }
+    .news {
+      display: flex;
+      flex-direction: row;
+      width: 95%;
+      column-gap: 3vh;
+
+      figcaption {
+        height: 40vh;
+      }
+    }
+  }
+
+  .message {
+    width: 95%;
+    margin-left: 2.5%;
+    .current {
+      h1 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 30px;
+      }
+      h4 {
+        font-size: 25px;
+      }
+
+      h5 {
+        font-size: 21px;
+      }
+      a {
+        transition: 0.3s;
+        font-size: 20px;
+      }
+      a:hover {
+        background-color: gainsboro;
+        color: #36ac5d;
+      }
+    }
+  }
+  .room-page {
+    flex-direction: row;
+    justify-content: center;
+    .room-table {
+      row-gap: 5vh;
+      padding-top: 2%;
+      width: 50%;
+      .room-info {
+        width: 90%;
+      }
+    }
+    tbody {
+      tr:hover {
+        color: $mainColor;
+      }
+    }
+    .reservation-form {
+      width: 40%;
+    }
+  }
+  .reservation-form {
+    input[type="submit"]:hover {
+      background-color: $secondaryColor;
+      color: whitesmoke;
+    }
+  }
+  .festival {
+    text-align: center;
+    .event-title {
+      font-size: 35px;
+    }
+
+    .date {
+      font-size: 20px;
+    }
+
+    .categories {
+      font-size: 22px;
+      font-weight: 700;
+      // justify-content: center;
+      // width: 70%;
+      span {
+        font-size: 30px;
+      }
+    }
+
+    .session {
+      ul {
+        padding: 2%;
+        li {
+          font-size: 20px;
+          // padding: 2%;
+        }
+      }
+    }
+
+    figure {
+      flex-direction: row;
+      column-gap: 1vh;
+      img {
+        border: 3px solid $secondaryColor;
+        border-radius: 10px;
+        width: 50%;
+      }
+      figcaption {
+        border-radius: 10px;
+        align-items: center;
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .event {
+    .gallery {
+      // display: grid;
+      // gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+
+      figure {
+        // position: relative;
+        // margin: 0;
+
+        // img {
+        //   width: 100%;
+        //   height: 40vh;
+        //   object-fit: cover;
+        // }
+
+        figcaption {
+          transition: 0.3s;
+          opacity: 0;
+
+          aside {
+            a {
+              transition: background-color 0.3s;
+
+              &:hover {
+                color: gainsboro;
+                background-color: $mainColor;
+              }
+            }
+          }
+        }
+
+        &:hover figcaption {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .footer {
+    h4 {
+      width: 30%;
+    }
+  }
+  .contact-follow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // height: 50vh;
+    // column-gap: 20vh;
+  }
+
+  .contact {
+    width: 50%;
+  }
+
+  .follow {
+    width: 50%;
+  }
+}
