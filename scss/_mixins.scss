@@ -1,0 +1,17 @@
+@mixin MakeColumn($row: 0vh) {
+  display: flex;
+  flex-direction: column;
+  row-gap: $row;
+}
+
+@mixin MakeRow($column: 0vh) {
+  display: flex;
+  flex-direction: row;
+  column-gap: $column;
+}
+
+@mixin MakeCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

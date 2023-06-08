@@ -1,0 +1,623 @@
+body {
+  @include MakeColumn;
+  // @include MakeCenter;
+  width: 100%;
+  height: 100%;
+
+  main {
+    @include MakeColumn;
+    // @include MakeCenter;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 300px) {
+  .header-main {
+    height: 25vh;
+
+    background: {
+      image: url("../img/books.jpg");
+      position: center;
+      size: cover;
+      repeat: no-repeat;
+    }
+
+    section {
+      height: 100%;
+      padding: 20px;
+      background-color: rgba($color: white, $alpha: 0.7);
+    }
+
+    .banner-button {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    figure {
+      width: 20vw;
+    }
+
+    img {
+      width: 100px;
+    }
+    h1 {
+      color: $mainColor;
+      font-weight: 700;
+    }
+    h4 {
+      color: $mainColor;
+      font-weight: 700;
+      // text-shadow: #fc0 1px 0 10px;
+      padding: 2%;
+      margin-left: 10%;
+    }
+  }
+
+  //Login Form
+  .loginForm {
+    @include MakeCenter;
+    margin: 1%;
+    padding: 3%;
+    background-color: $thirdColor;
+    border-radius: 15px;
+    // border: 1px solid $mainColor;
+
+    table {
+      padding: 20%;
+    }
+
+    tbody {
+      @include MakeColumn;
+      row-gap: 30px;
+    }
+
+    td > label {
+      width: 8vw;
+    }
+
+    .loginButton {
+      @include MakeCenter;
+    }
+
+    [type="submit"] {
+      width: 10vw;
+      background-color: $secondaryColor;
+      color: white;
+    }
+  }
+
+  //New user form
+  #userForm {
+    margin: 1%;
+    padding: 3%;
+    background-color: $thirdColor;
+    border-radius: 15px;
+    width: 100%;
+    @include MakeCenter;
+
+    .submit-button {
+      @include MakeCenter;
+    }
+
+    [type="submit"] {
+      width: 12vw;
+      background-color: $secondaryColor;
+      color: white;
+    }
+  }
+
+  a {
+    font-size: 24px;
+    height: 40px;
+    width: 100px;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .nav-main {
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      height: 5vh;
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 18px;
+      width: 100%;
+      text-align: center;
+      color: black;
+    }
+
+    a:hover {
+      background-color: $secondaryColor;
+      color: white;
+    }
+  }
+
+  .news-highlights {
+    img {
+      width: 100%;
+    }
+
+    h2 {
+      color: $mainColor;
+      font-weight: 600;
+    }
+
+    @include MakeColumn(3vh);
+    align-items: center;
+
+    .news {
+      @include MakeColumn(5vh);
+      width: 90%;
+    }
+
+    figure {
+      p {
+        text-align: justify;
+        padding-bottom: 5%;
+      }
+
+      a {
+        text-decoration: none;
+        border: 1px solid $thirdColor;
+        border-radius: 10px;
+        background-color: $thirdColor;
+        padding: 2%;
+        color: $mainColor;
+        transition: 0.6s;
+      }
+    }
+  }
+
+  // slide show of information row
+  .infor {
+    @include MakeCenter;
+    @include MakeColumn;
+    column-gap: 3vh;
+    row-gap: 2vh;
+    font-size: 30px;
+    margin-bottom: 2%;
+    .slides {
+      @include MakeColumn;
+      @include MakeCenter;
+      flex-wrap: wrap;
+      width: 100%;
+      row-gap: 5vh;
+
+      figure {
+        position: relative;
+        display: flex;
+        row-gap: 3vh;
+        width: 90%;
+        height: 40vh;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      figcaption {
+        position: absolute;
+        bottom: 0;
+        // display: flex;
+        @include MakeCenter;
+        column-gap: 3vh;
+        width: 90%;
+        height: 20%;
+        // border: 1px solid black;
+        background-color: rgba(53, 52, 52, 0.7);
+        padding: 5%;
+        box-sizing: content-box;
+        color: #fff;
+      }
+
+      i {
+        display: flex;
+      }
+
+      h5 {
+        font-size: 16px;
+      }
+    }
+  }
+
+  //   room row
+  .room {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    h2 {
+      font-size: 30px;
+      color: $mainColor;
+      font-weight: 700;
+    }
+
+    .slides {
+      display: flex;
+      flex-direction: column;
+      row-gap: 3vh;
+      @include MakeCenter;
+
+      figure {
+        display: flex;
+        column-gap: 5vh;
+        @include MakeCenter;
+        height: 100%;
+
+        img {
+          width: 40%;
+          height: 100%;
+        }
+
+        figcaption {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+
+          i {
+            display: block;
+            font-size: 24px;
+          }
+
+          h5 {
+            font-size: 20px;
+          }
+
+          h6 {
+            font-size: 16px;
+          }
+        }
+      }
+
+      a {
+        // display: inline-block
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        // text-align: center;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+
+  .room-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    row-gap: 2%;
+    column-gap: 2%;
+    row-gap: 2vh;
+    margin-bottom: 2%;
+    .room-table {
+      @include MakeColumn;
+      @include MakeCenter;
+      width: 100%;
+
+      .room-info {
+        width: 90%;
+        padding: 2%;
+        font-size: 14px;
+        box-sizing: content-box;
+        border-collapse: collapse;
+        text-align: center;
+
+        th {
+          background-color: #e9f1f7;
+          font-weight: bold;
+          text-align: center;
+          box-sizing: content-box;
+          padding: 8px;
+          border: 1px solid $mainColor;
+        }
+
+        td {
+          padding: 4px;
+          border-bottom: 1px solid $mainColor;
+        }
+      }
+    }
+  }
+
+  .reservation-form {
+    @include MakeColumn;
+    width: 80%;
+    align-items: center;
+    padding: 20px;
+    row-gap: 3vh;
+    border: 3px solid gainsboro;
+    border-radius: 10%;
+
+    label {
+      display: flex;
+    }
+
+    select,
+    input {
+      width: 90%;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      width: 50%;
+      border: 1px solid transparent;
+      background-color: #e9f1f7;
+    }
+  }
+
+  .message {
+    @include MakeColumn;
+    @include MakeCenter;
+    margin-top: 2%;
+    background-color: #1d84b5;
+    color: wheatblue;
+    padding: 5%;
+    border-radius: 5px;
+
+    .current {
+      text-align: center;
+
+      h1 {
+        color: gainsboro;
+        font-size: 24px;
+        margin: 0 0 10px;
+      }
+
+      h4 {
+        color: #74f39c;
+        font-size: 18px;
+        margin: 0;
+      }
+
+      h5 {
+        color: bisque;
+        font-size: 14px;
+        margin: 0;
+      }
+
+      a {
+        text-decoration: none;
+        background-color: #36ac5d;
+        padding: 1%;
+        border-radius: 20%;
+        color: gainsboro;
+        cursor: pointer;
+      }
+
+      p {
+        color: #333333;
+        font-size: 16px;
+        margin: 0 0 10px;
+      }
+    }
+  }
+  .festival {
+    @include MakeColumn;
+    padding: 2%;
+    // border: 1px solid black;
+    row-gap: 2vh;
+    .event-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: $mainColor;
+      // border: 1px solid blue;
+    }
+
+    .date {
+      font-size: 16px;
+      color: #666;
+      font-weight: 700;
+    }
+
+    .categories {
+      @include MakeColumn;
+      width: 100%;
+      // border: 1px solid red;
+      span {
+        display: inline-block;
+        background-color: $mainColor;
+        padding: 4px 8px;
+        color: #fff;
+      }
+    }
+
+    .session {
+      @include MakeColumn;
+      // border: 1px solid green;
+      font-weight: 700;
+      ul {
+        list-style: none;
+        padding: 0;
+        border: 1px soild gainsboro;
+        li {
+          font-size: 14px;
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    figure {
+      display: flex;
+      flex-direction: column;
+      // border: 1px solid red;
+      img {
+        width: 100%;
+        // height: 40%;
+      }
+      figcaption {
+        display: flex;
+        background-color: gainsboro;
+        p {
+          padding: 5%;
+          line-height: 2;
+        }
+      }
+    }
+  }
+
+  .event {
+    margin-bottom: 10px;
+    padding: 2%;
+    h2 {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: $mainColor;
+      font-weight: 700;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    figure {
+      position: relative;
+      margin: 0;
+
+      img {
+        width: 100%;
+        height: 40vh;
+        object-fit: cover;
+      }
+
+      figcaption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(37, 100, 52, 0.7);
+        padding: 20px;
+        color: #fff;
+
+        // .fa-clock {
+        //   display: inline-block;
+        //   margin-right: 5px;
+        // }
+
+        h3 {
+          font-size: 20px;
+          font-weight: bold;
+          margin: 0;
+        }
+
+        h5 {
+          font-size: 14px;
+          margin: 5px 0;
+        }
+
+        aside {
+          display: flex;
+          align-items: center;
+
+          p {
+            margin: 0;
+          }
+
+          a {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-follow {
+    @include MakeColumn(3vh);
+    justify-content: center;
+    background-color: $mainColor;
+    width: 100%;
+    height: 60vh;
+
+    p {
+      font-weight: 700;
+      // border-bottom: 1px solid black;
+    }
+
+    a {
+      color: rgb(208, 208, 208);
+      transition: 0.6s;
+      font-size: 17px;
+      width: 100%;
+    }
+  }
+
+  .contact,
+  .follow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .follow {
+    ul {
+      display: flex;
+      width: 100%;
+      padding-top: 3vh;
+    }
+
+    li {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgb(208, 208, 208);
+      border-radius: 50px;
+      width: 5vh;
+      height: 5vh;
+      font-size: 20px;
+      transition: 0.6s;
+    }
+  }
+
+  .copyright {
+    @include MakeColumn(2vh);
+    justify-content: center;
+    align-items: center;
+    background-color: $thirdColor;
+    height: 20vh;
+    border-top: 5px solid rgb(208, 208, 208);
+
+    p {
+      width: 90%;
+      text-align: center;
+    }
+
+    a {
+      color: $mainColor;
+      transition: 0.6s;
+      font-size: 17px;
+    }
+  }
+}

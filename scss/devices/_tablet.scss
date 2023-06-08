@@ -1,0 +1,107 @@
+@media (min-width: 700px) {
+  // slide show of information row
+
+  .infor {
+    h2 {
+      color: $mainColor;
+      font-size: 35px;
+    }
+    font-size: 50px;
+    .slides {
+      h5 {
+        font-size: 30px;
+      }
+      h6 {
+        font-size: 30px;
+      }
+    }
+  }
+  .news-highlights {
+    h2 {
+      font-size: 35px;
+    }
+
+    p,
+    h4,
+    a {
+      font-size: 20px;
+    }
+
+    a:hover {
+      background-color: white;
+      border: 2px solid $mainColor;
+    }
+  }
+  .message {
+    width: 90%;
+    margin-left: 5%;
+    .current {
+      h4 {
+        font-size: 22px;
+      }
+
+      h5 {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .footer {
+    h4 {
+      font-size: 35px;
+      width: 20%;
+    }
+  }
+  .contact-follow {
+    height: 50vh;
+
+    p {
+      font-size: 25px;
+    }
+
+    small {
+      font-size: 20px;
+    }
+  }
+
+  .contact {
+    a {
+      font-size: 20px;
+
+      &:hover {
+        color: rgb(29, 194, 29);
+      }
+    }
+  }
+
+  .follow {
+    ul {
+      width: 45%;
+    }
+    a {
+      font-size: 25px;
+
+      &:hover {
+        background-color: rgb(208, 208, 208);
+        color: $mainColor;
+      }
+    }
+  }
+
+  .copyright {
+    width: 100%;
+
+    p {
+      font-size: 20px;
+      width: 95%;
+    }
+
+    a:hover {
+      color: $secondaryColor;
+    }
+  }
+}
