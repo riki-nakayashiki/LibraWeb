@@ -39,6 +39,16 @@ body main {
   .header-main img {
     width: 100px;
   }
+  .header-main h1 {
+    color: #1D84B5;
+    font-weight: 700;
+  }
+  .header-main h2 {
+    color: #1D84B5;
+    font-weight: 700;
+    padding: 2%;
+    margin-left: 10%;
+  }
   .loginForm {
     display: flex;
     justify-content: center;
@@ -140,6 +150,7 @@ body main {
          column-gap: 3vh;
     row-gap: 2vh;
     font-size: 30px;
+    margin-bottom: 2%;
   }
   .infor .slides {
     display: flex;
@@ -190,7 +201,9 @@ body main {
     text-align: center;
   }
   .room h2 {
-    font-size: 24px;
+    font-size: 30px;
+    color: #1D84B5;
+    font-weight: 700;
   }
   .room .slides {
     display: flex;
@@ -216,6 +229,7 @@ body main {
   .room .slides figure figcaption {
     display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
   .room .slides figure figcaption i {
@@ -247,6 +261,7 @@ body main {
     -moz-column-gap: 2%;
          column-gap: 2%;
     row-gap: 2vh;
+    margin-bottom: 2%;
   }
   .room-page .room-table {
     display: flex;
@@ -271,11 +286,11 @@ body main {
     text-align: center;
     box-sizing: content-box;
     padding: 8px;
-    border: 1px solid gray;
+    border: 1px solid #1D84B5;
   }
   .room-page .room-table .room-info td {
     padding: 4px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #1D84B5;
   }
   .reservation-form {
     display: flex;
@@ -346,20 +361,126 @@ body main {
     font-size: 16px;
     margin: 0 0 10px;
   }
-  .footer {
-    padding-top: 5vh;
+  .festival {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    row-gap: 0vh;
+    padding: 2%;
+    row-gap: 2vh;
   }
-  .footer a {
-    text-decoration: none;
+  .festival .event-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1D84B5;
   }
-  .footer h4 {
+  .festival .date {
+    font-size: 16px;
+    color: #666;
+    font-weight: 700;
+  }
+  .festival .categories {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0vh;
+    width: 100%;
+  }
+  .festival .categories span {
+    display: inline-block;
+    background-color: #1D84B5;
+    padding: 4px 8px;
+    color: #fff;
+  }
+  .festival .session {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0vh;
+    font-weight: 700;
+  }
+  .festival .session ul {
+    list-style: none;
+    padding: 0;
+    border: 1px soild gainsboro;
+  }
+  .festival .session ul li {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .festival figure {
+    display: flex;
+    flex-direction: column;
+  }
+  .festival figure img {
+    width: 100%;
+  }
+  .festival figure figcaption {
+    display: flex;
+    background-color: gainsboro;
+  }
+  .festival figure figcaption p {
+    padding: 5%;
+    line-height: 2;
+  }
+  .event {
+    margin-bottom: 10px;
+    padding: 2%;
+  }
+  .event h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #1D84B5;
+    font-weight: 700;
+  }
+  .event .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .event figure {
+    position: relative;
+    margin: 0;
+  }
+  .event figure img {
+    width: 100%;
+    height: 40vh;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .event figure figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(37, 100, 52, 0.7);
+    padding: 20px;
+    color: #fff;
+  }
+  .event figure figcaption h3 {
     font-size: 20px;
-    border-bottom: 1px solid black;
-    width: 30%;
+    font-weight: bold;
+    margin: 0;
+  }
+  .event figure figcaption h5 {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  .event figure figcaption aside {
+    display: flex;
+    align-items: center;
+  }
+  .event figure figcaption aside p {
+    margin: 0;
+  }
+  .event figure figcaption aside a {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: background-color 0.3s;
   }
   .contact-follow {
     display: flex;
@@ -461,6 +582,9 @@ body main {
   .message .current h5 {
     font-size: 18px;
   }
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
   .footer h4 {
     font-size: 35px;
     width: 20%;
@@ -502,10 +626,13 @@ body main {
   }
 }
 @media (min-width: 1000px) {
+  .header-main h2 {
+    padding: 2%;
+    margin-left: 50%;
+  }
   .infor {
     width: 100%;
     height: 60vh;
-    margin-top: 8%;
   }
   .infor .slides {
     background-color: gainsboro;
@@ -615,12 +742,71 @@ body main {
   .room-page .room-table .room-info {
     width: 90%;
   }
+  .room-page tbody tr:hover {
+    color: #1D84B5;
+  }
   .room-page .reservation-form {
     width: 40%;
   }
   .reservation-form input[type=submit]:hover {
     background-color: #50C878;
     color: whitesmoke;
+  }
+  .festival {
+    text-align: center;
+  }
+  .festival .event-title {
+    font-size: 35px;
+  }
+  .festival .date {
+    font-size: 20px;
+  }
+  .festival .categories {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .festival .categories span {
+    font-size: 30px;
+  }
+  .festival .session ul {
+    padding: 2%;
+  }
+  .festival .session ul li {
+    font-size: 20px;
+  }
+  .festival figure {
+    flex-direction: row;
+    -moz-column-gap: 1vh;
+         column-gap: 1vh;
+  }
+  .festival figure img {
+    border: 3px solid #50C878;
+    border-radius: 10px;
+    width: 50%;
+  }
+  .festival figure figcaption {
+    border-radius: 10px;
+    align-items: center;
+  }
+  .festival figure figcaption p {
+    font-size: 20px;
+  }
+  .event .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .event .gallery figure figcaption {
+    transition: 0.3s;
+    opacity: 0;
+  }
+  .event .gallery figure figcaption aside a {
+    transition: background-color 0.3s;
+  }
+  .event .gallery figure figcaption aside a:hover {
+    color: gainsboro;
+    background-color: #1D84B5;
+  }
+  .event .gallery figure:hover figcaption {
+    opacity: 1;
   }
   .footer h4 {
     width: 30%;
