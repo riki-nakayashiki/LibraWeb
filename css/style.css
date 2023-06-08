@@ -47,7 +47,7 @@ body main {
     color: #1D84B5;
     font-weight: 700;
   }
-  .header-main h2 {
+  .header-main h4 {
     color: #1D84B5;
     font-weight: 700;
     padding: 2%;
@@ -651,7 +651,7 @@ body main {
   }
 }
 @media (min-width: 1000px) {
-  .header-main h2 {
+  .header-main h4 {
     padding: 2%;
     margin-left: 50%;
   }
